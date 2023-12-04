@@ -23,20 +23,20 @@ wrapper {
     distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-        }
-    }
+//publishing {
+//    publications {
+//        mavenJava(MavenPublication) {
+//            from components.java
+//        }
+//    }
 
-    repositories {
-        maven {
-            name = 'myRepo'
-            url = layout.buildDirectory.dir("repo")
-        }
-    }
-}
+//    repositories {
+//        maven {
+//            name = 'myRepo'
+//            url = layout.buildDirectory.dir("repo")
+//        }
+//    }
+//}
 
 // TODO: want to get these tests back in here but for now i removed them due to some versioning issues.
 // TODO: @kuba we will have to talk about the details here and if this can actually be skipped.
