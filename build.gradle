@@ -11,11 +11,19 @@ buildscript {
 }
 
 plugins {
-    id 'maven-publish'
-    id 'signing'
+    id('maven-publish')
+    id('java-library')
+    id('signing')
+    id('application')
 }
 
-group 'org.piecesapp.kotlin'
+
+application {
+    mainClass='org.piecesapp.client.infrastructure'
+}
+
+
+group 'org.piecesapp'
 version '0.0.1'
 
 wrapper {

@@ -23,8 +23,8 @@ This will attempt to connect to a specific users cloud.(Required that the curren
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = AllocationsApi()
 val userProfile : UserProfile =  // UserProfile | 
@@ -70,8 +70,8 @@ This is unimplemented locally. This will create an allocation. ONLY used within 
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = AllocationsApi()
 val allocationCloud : AllocationCloud =  // AllocationCloud | 
@@ -117,8 +117,8 @@ This is unimplemented locally. This will delete an allocation. ONLY used within 
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = AllocationsApi()
 val allocationCloud : AllocationCloud =  // AllocationCloud | 
@@ -164,8 +164,8 @@ This will attempt to disconnect to a specific users cloud.
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = AllocationsApi()
 val allocationCloud : AllocationCloud =  // AllocationCloud | 
@@ -211,8 +211,8 @@ This will attempt to reconnect to a users cloud. This will ensure that we are co
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = AllocationsApi()
 val allocationCloud : AllocationCloud =  // AllocationCloud | 
@@ -258,8 +258,8 @@ This is going to get a snapshot of all of the connected allocations.
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = AllocationsApi()
 try {
