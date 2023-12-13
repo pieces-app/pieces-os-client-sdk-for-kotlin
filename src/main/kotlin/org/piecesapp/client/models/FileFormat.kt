@@ -9,11 +9,11 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.models
+package org.openapitools.client.models
 
-import org.piecesapp.client.models.EmbeddedModelSchema
-import org.piecesapp.client.models.TransferableBytes
-import org.piecesapp.client.models.TransferableString
+import org.openapitools.client.models.EmbeddedModelSchema
+import org.openapitools.client.models.TransferableBytes
+import org.openapitools.client.models.TransferableString
 
 import com.squareup.moshi.Json
 

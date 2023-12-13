@@ -9,12 +9,12 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.models
+package org.openapitools.client.models
 
-import org.piecesapp.client.models.GroupedTimestamp
-import org.piecesapp.client.models.ReferencedAnnotation
-import org.piecesapp.client.models.ReferencedAsset
-import org.piecesapp.client.models.ReferencedModel
+import org.openapitools.client.models.GroupedTimestamp
+import org.openapitools.client.models.ReferencedAnnotation
+import org.openapitools.client.models.ReferencedAsset
+import org.openapitools.client.models.ReferencedModel
 
 import com.squareup.moshi.Json
 

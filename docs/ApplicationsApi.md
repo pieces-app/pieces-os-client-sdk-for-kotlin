@@ -27,8 +27,8 @@ This will register a connected applicaiton.
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ApplicationsApi()
 val application : Application =  // Application | This will accept a application.
@@ -74,8 +74,8 @@ This will close your opened session! Going to want to accept a session uuid here
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ApplicationsApi()
 val body : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | This will accept a required session uuid.
@@ -121,8 +121,8 @@ This will open a new session. A session is when someone is using the pieces appl
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ApplicationsApi()
 try {
@@ -164,8 +164,8 @@ This is an endpoint to get a snapshot of a specific session.
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ApplicationsApi()
 val session : kotlin.String = session_example // kotlin.String | This is a uuid that points to a session.
@@ -209,8 +209,8 @@ No authorization required
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ApplicationsApi()
 try {
@@ -252,8 +252,8 @@ This will retrieve snapshot of a single application.
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ApplicationsApi()
 val application : kotlin.String = application_example // kotlin.String | This is a uuid that represents an application
@@ -299,8 +299,8 @@ This is an analytics endpoint that will enable us to know when a user engages so
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ApplicationsApi()
 val seededTrackedInteractionEvent : SeededTrackedInteractionEvent =  // SeededTrackedInteractionEvent | 
@@ -346,8 +346,8 @@ This is an analytics endpoint that will enable us to know when a user uses a key
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ApplicationsApi()
 val seededTrackedKeyboardEvent : SeededTrackedKeyboardEvent =  // SeededTrackedKeyboardEvent | 
@@ -393,8 +393,8 @@ This is an analytics endpoint that will enable us to know when a user has instal
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ApplicationsApi()
 val trackedApplicationInstall : TrackedApplicationInstall =  // TrackedApplicationInstall | 
@@ -439,8 +439,8 @@ This is an endpoint to determine when an application has been updated
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ApplicationsApi()
 val trackedApplicationUpdate : TrackedApplicationUpdate =  // TrackedApplicationUpdate | Sending over the previous application version, the current version, and the user.

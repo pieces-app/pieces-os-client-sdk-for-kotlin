@@ -18,8 +18,8 @@ This is a cloud only Api. This will get a preview of your publically accessble P
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = PieceApi()
 val p : kotlin.String = p_example // kotlin.String | this is the a query param, that a shortened version of the share.

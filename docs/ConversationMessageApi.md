@@ -22,8 +22,8 @@ This will associate a message with an annotation.
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ConversationMessageApi()
 val annotation : kotlin.String = annotation_example // kotlin.String | This is a specific annotation uuid.
@@ -70,8 +70,8 @@ This will enable us to dissassociate a message from an annotation.
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ConversationMessageApi()
 val annotation : kotlin.String = annotation_example // kotlin.String | This is a specific annotation uuid.
@@ -118,8 +118,8 @@ This will take in a SeededScoreIncrement and will increment the material relativ
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ConversationMessageApi()
 val message : kotlin.String = message_example // kotlin.String | This is the uuid of a message.
@@ -166,8 +166,8 @@ This will get a specific snapshot of a message
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ConversationMessageApi()
 val message : kotlin.String = message_example // kotlin.String | This is the uuid of a message.
@@ -215,8 +215,8 @@ This will update a conversation message.
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ConversationMessageApi()
 val transferables : kotlin.Boolean = true // kotlin.Boolean | This is a boolean that will decided if we are want to return the transferable data (default) or not(performance enhancement)

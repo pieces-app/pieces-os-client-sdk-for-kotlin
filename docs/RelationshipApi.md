@@ -18,8 +18,8 @@ This will return a single relationship object.
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = RelationshipApi()
 val relationship : kotlin.String = relationship_example // kotlin.String | this is a specific relationship uuid.

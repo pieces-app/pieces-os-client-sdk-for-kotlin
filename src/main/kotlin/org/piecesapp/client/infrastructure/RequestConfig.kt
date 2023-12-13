@@ -1,4 +1,4 @@
-package org.piecesapp.client.infrastructure
+package org.openapitools.client.infrastructure
 
 /**
  * Defines a config object for a given request.

@@ -9,15 +9,15 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.models
+package org.openapitools.client.models
 
-import org.piecesapp.client.models.EmbeddedModelSchema
-import org.piecesapp.client.models.TLPCodeFragmentClassification
-import org.piecesapp.client.models.TLPCodeFragmentDescription
-import org.piecesapp.client.models.TLPCodeFragmentReclassification
-import org.piecesapp.client.models.TLPCodeFragmentStatistics
-import org.piecesapp.client.models.TLPCodeFragmentTagify
-import org.piecesapp.client.models.TLPCodeSnippetSuggestedInteractions
+import org.openapitools.client.models.EmbeddedModelSchema
+import org.openapitools.client.models.TLPCodeFragmentClassification
+import org.openapitools.client.models.TLPCodeFragmentDescription
+import org.openapitools.client.models.TLPCodeFragmentReclassification
+import org.openapitools.client.models.TLPCodeFragmentStatistics
+import org.openapitools.client.models.TLPCodeFragmentTagify
+import org.openapitools.client.models.TLPCodeSnippetSuggestedInteractions
 
 import com.squareup.moshi.Json
 

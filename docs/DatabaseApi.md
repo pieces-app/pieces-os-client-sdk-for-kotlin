@@ -19,8 +19,8 @@ This is going to export your current database.
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = DatabaseApi()
 try {
@@ -62,8 +62,8 @@ This is going to take in a database, and merge it with the current database. Thi
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = DatabaseApi()
 val exportedDatabase : ExportedDatabase =  // ExportedDatabase | 

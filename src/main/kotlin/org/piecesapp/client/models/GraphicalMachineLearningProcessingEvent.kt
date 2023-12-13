@@ -9,12 +9,12 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.models
+package org.openapitools.client.models
 
-import org.piecesapp.client.models.EmbeddedModelSchema
-import org.piecesapp.client.models.GraphicalImageProcessing
-import org.piecesapp.client.models.GraphicalOCRProcessing
-import org.piecesapp.client.models.GraphicalSVGStatistics
+import org.openapitools.client.models.EmbeddedModelSchema
+import org.openapitools.client.models.GraphicalImageProcessing
+import org.openapitools.client.models.GraphicalOCRProcessing
+import org.openapitools.client.models.GraphicalSVGStatistics
 
 import com.squareup.moshi.Json
 

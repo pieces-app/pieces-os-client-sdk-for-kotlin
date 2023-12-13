@@ -21,8 +21,8 @@ https://auth0.com/docs/api/authentication#logout
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = Auth0Api()
 val clientId : kotlin.String = clientId_example // kotlin.String | The client ID of the Auth0 Instance
@@ -70,8 +70,8 @@ An endpoint that is used locally authenticate via a PKCE Flow.  Example https://
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = Auth0Api()
 val audience : kotlin.String = https://pieces.us.auth0.com/api/v2/ // kotlin.String |  The unique identifier of the target API you want to access.
@@ -137,8 +137,8 @@ An endpoint to generate a OAuth Token for an authentication flow.
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = Auth0Api()
 val grantType : kotlin.String = grantType_example // kotlin.String | Denotes the flow you are using. For Authorization Code, use authorization_code or refresh_token.
@@ -196,8 +196,8 @@ Get the users info from the Auth0 API
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = Auth0Api()
 try {

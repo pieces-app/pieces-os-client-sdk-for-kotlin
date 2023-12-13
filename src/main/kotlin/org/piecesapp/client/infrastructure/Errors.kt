@@ -1,5 +1,5 @@
 @file:Suppress("unused")
-package org.piecesapp.client.infrastructure
+package org.openapitools.client.infrastructure
 
 import java.lang.RuntimeException
 

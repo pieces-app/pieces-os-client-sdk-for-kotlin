@@ -9,10 +9,10 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.models
+package org.openapitools.client.models
 
-import org.piecesapp.client.models.OCRConfidence
-import org.piecesapp.client.models.OCRHOCR
+import org.openapitools.client.models.OCRConfidence
+import org.openapitools.client.models.OCRHOCR
 
 import com.squareup.moshi.Json
 

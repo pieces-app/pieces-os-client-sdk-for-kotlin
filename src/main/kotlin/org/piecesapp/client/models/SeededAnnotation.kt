@@ -9,12 +9,12 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.models
+package org.openapitools.client.models
 
-import org.piecesapp.client.models.AnnotationTypeEnum
-import org.piecesapp.client.models.EmbeddedModelSchema
-import org.piecesapp.client.models.FlattenedConversationMessages
-import org.piecesapp.client.models.MechanismEnum
+import org.openapitools.client.models.AnnotationTypeEnum
+import org.openapitools.client.models.EmbeddedModelSchema
+import org.openapitools.client.models.FlattenedConversationMessages
+import org.openapitools.client.models.MechanismEnum
 
 import com.squareup.moshi.Json
 
