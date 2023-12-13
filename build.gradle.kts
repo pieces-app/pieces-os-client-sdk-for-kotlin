@@ -14,6 +14,7 @@ java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(19))
 }
 
+
 dependencies {
     implementation("org.openapitools:openapi-generator:7.1.0")
     //implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
@@ -30,23 +31,30 @@ dependencies {
 group = "org.piecesapp.kotlin"
 version = "0.0.1"
 
+
+// TODO: is this even necessary for a publish?
 application {
     application
 }
-//publishing {
-//    publications {
-//        mavenJava(MavenPublication) {
-//            from components.java
-//        }
-//    }
 
-//    repositories {
-//        maven {
-//            name = 'myRepo'
-//            url = layout.buildDirectory.dir("repo")
-//        }
-//    }
-//}
+// TODO: brought back @jordan's publishing setup and kotlinized it, need details on specifics to flesh it out.
+// https://docs.gradle.org/current/userguide/publishing_maven.html
+publishing {
+    publications {
+        create<MavenPublication>("myLibrary") {
+                from(components["java"])
+                withBuildIdentifier()
+        }
+    }
+
+    repositories {
+        maven {
+            name = "myRepo"
+            url = uri(layout.buildDirectory.dir("repo"))
+        }
+    }
+}
+
 
 // TODO: want to get these tests back in here but for now i removed them due to some versioning issues.
 // TODO: @kuba we will have to talk about the details here and if this can actually be skipped.
