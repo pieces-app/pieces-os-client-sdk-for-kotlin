@@ -24,6 +24,7 @@ dependencies {
     //classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.21")
     //implementation(project("pieces-os-client-sdk-for-kotlin"))
     //implementation("")
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 group = "org.piecesapp.kotlin"

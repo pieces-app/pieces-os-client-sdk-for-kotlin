@@ -5,7 +5,6 @@
       <module name="org.piecesapp.kotlin-pieces-os-client.main" target="19" />
       <module name="org.piecesapp.kotlin-pieces-os-client.test" target="19" />
       <module name="org.piecesapp.kotlin.pieces-os-client.main" target="19" />
-      <module name="org.piecesapp.kotlin.pieces-os-client.test" target="19" />
     </bytecodeTargetLevel>
   </component>
 </project>

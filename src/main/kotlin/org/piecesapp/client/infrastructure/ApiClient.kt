@@ -1,4 +1,4 @@
-package org.openapitools.client.infrastructure
+package org.piecesapp.client.infrastructure
 
 import okhttp3.Credentials
 import okhttp3.OkHttpClient

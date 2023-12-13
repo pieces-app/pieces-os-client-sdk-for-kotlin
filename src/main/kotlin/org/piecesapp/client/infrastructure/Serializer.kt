@@ -1,4 +1,4 @@
-package org.openapitools.client.infrastructure
+package org.piecesapp.client.infrastructure
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
