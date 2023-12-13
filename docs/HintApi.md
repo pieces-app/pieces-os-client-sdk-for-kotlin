@@ -20,8 +20,8 @@ This will take in a SeededScoreIncrement and will increment the material relativ
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = HintApi()
 val hint : kotlin.String = hint_example // kotlin.String | This is a specific hint uuid
@@ -68,8 +68,8 @@ This will get a snapshot of a specific hint.
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = HintApi()
 val hint : kotlin.String = hint_example // kotlin.String | This is a specific hint uuid
@@ -115,8 +115,8 @@ This will update a specific hint.
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = HintApi()
 val hint : Hint =  // Hint | 

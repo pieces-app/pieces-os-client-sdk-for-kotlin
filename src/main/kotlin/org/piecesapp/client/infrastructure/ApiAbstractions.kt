@@ -1,4 +1,4 @@
-package org.piecesapp.client.infrastructure
+package org.openapitools.client.infrastructure
 
 typealias MultiValueMap = MutableMap<String,List<String>>
 

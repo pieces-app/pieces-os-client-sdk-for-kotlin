@@ -9,12 +9,12 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.models
+package org.openapitools.client.models
 
-import org.piecesapp.client.models.EmbeddedModelSchema
-import org.piecesapp.client.models.SeededFile
-import org.piecesapp.client.models.SeededFragment
-import org.piecesapp.client.models.TLPDirectedDiscoveryFilters
+import org.openapitools.client.models.EmbeddedModelSchema
+import org.openapitools.client.models.SeededFile
+import org.openapitools.client.models.SeededFragment
+import org.openapitools.client.models.TLPDirectedDiscoveryFilters
 
 import com.squareup.moshi.Json
 

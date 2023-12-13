@@ -9,16 +9,16 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.models
+package org.openapitools.client.models
 
-import org.piecesapp.client.models.Application
-import org.piecesapp.client.models.EmbeddedModelSchema
-import org.piecesapp.client.models.FlattenedUserProfile
-import org.piecesapp.client.models.GroupedTimestamp
-import org.piecesapp.client.models.MechanismEnum
-import org.piecesapp.client.models.ReferencedAsset
-import org.piecesapp.client.models.ReferencedFormat
-import org.piecesapp.client.models.SeededConnectorTracking
+import org.openapitools.client.models.Application
+import org.openapitools.client.models.EmbeddedModelSchema
+import org.openapitools.client.models.FlattenedUserProfile
+import org.openapitools.client.models.GroupedTimestamp
+import org.openapitools.client.models.MechanismEnum
+import org.openapitools.client.models.ReferencedAsset
+import org.openapitools.client.models.ReferencedFormat
+import org.openapitools.client.models.SeededConnectorTracking
 
 import com.squareup.moshi.Json
 

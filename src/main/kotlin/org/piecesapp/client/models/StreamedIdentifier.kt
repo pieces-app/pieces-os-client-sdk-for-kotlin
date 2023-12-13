@@ -9,10 +9,10 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.models
+package org.openapitools.client.models
 
-import org.piecesapp.client.models.ReferencedAsset
-import org.piecesapp.client.models.ReferencedConversation
+import org.openapitools.client.models.ReferencedAsset
+import org.openapitools.client.models.ReferencedConversation
 
 import com.squareup.moshi.Json
 

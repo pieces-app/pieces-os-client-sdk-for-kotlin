@@ -9,9 +9,9 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.models
+package org.openapitools.client.models
 
-import org.piecesapp.client.models.GroupedTimestamp
+import org.openapitools.client.models.GroupedTimestamp
 
 import com.squareup.moshi.Json
 

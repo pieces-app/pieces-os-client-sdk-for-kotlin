@@ -18,8 +18,8 @@ Exposes an endpoint for the MacOS Services plugin to send over MacOS Specific Da
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = MacOSApi()
 val seededMacOSAsset : SeededMacOSAsset =  // SeededMacOSAsset | A SeededMacosApplication which contains the value and an Application Instance

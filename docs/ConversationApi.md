@@ -29,8 +29,8 @@ This will update both the anchor and the conversation.  and associate the 2 toge
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ConversationApi()
 val conversation : kotlin.String = conversation_example // kotlin.String | This is the uuid of a conversation.
@@ -77,8 +77,8 @@ This will update both the asset and the conversation.  and associate the 2 toget
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ConversationApi()
 val conversation : kotlin.String = conversation_example // kotlin.String | This is the uuid of a conversation.
@@ -125,8 +125,8 @@ This will update both the anchor and the conversation.  and delete(disacioate) t
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ConversationApi()
 val conversation : kotlin.String = conversation_example // kotlin.String | This is the uuid of a conversation.
@@ -173,8 +173,8 @@ This will update both the asset and the conversation.  and delete(disacioate) th
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ConversationApi()
 val conversation : kotlin.String = conversation_example // kotlin.String | This is the uuid of a conversation.
@@ -221,8 +221,8 @@ This will get a specific conversation.
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ConversationApi()
 val conversation : kotlin.String = conversation_example // kotlin.String | This is the uuid of a conversation.
@@ -270,8 +270,8 @@ This will save the grounding context for a conversation. This will enable us to 
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ConversationApi()
 val conversation : kotlin.String = conversation_example // kotlin.String | This is the uuid of a conversation.
@@ -318,8 +318,8 @@ This will remove specific grounding context for a conversation. This will enable
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ConversationApi()
 val conversation : kotlin.String = conversation_example // kotlin.String | This is the uuid of a conversation.
@@ -366,8 +366,8 @@ This will take in a SeededScoreIncrement and will increment the material relativ
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ConversationApi()
 val conversation : kotlin.String = conversation_example // kotlin.String | This is the uuid of a conversation.
@@ -414,8 +414,8 @@ This will get a specific conversations messages
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ConversationApi()
 val conversation : kotlin.String = conversation_example // kotlin.String | This is the uuid of a conversation.
@@ -463,8 +463,8 @@ This will take a specific converssation and it will rename using ML.
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ConversationApi()
 val conversation : kotlin.String = conversation_example // kotlin.String | This is the uuid of a conversation.
@@ -512,8 +512,8 @@ This will take a current conversation and create a summary of the conversation a
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ConversationApi()
 val conversation : kotlin.String = conversation_example // kotlin.String | This is the uuid of a conversation.
@@ -561,8 +561,8 @@ This will update a specific conversation.
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = ConversationApi()
 val transferables : kotlin.Boolean = true // kotlin.Boolean | This is a boolean that will decided if we are want to return the transferable data (default) or not(performance enhancement)

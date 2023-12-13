@@ -9,15 +9,15 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.models
+package org.openapitools.client.models
 
-import org.piecesapp.client.models.ConversationMessageSentimentEnum
-import org.piecesapp.client.models.EmbeddedModelSchema
-import org.piecesapp.client.models.FragmentFormat
-import org.piecesapp.client.models.GroupedTimestamp
-import org.piecesapp.client.models.Model
-import org.piecesapp.client.models.QGPTConversationMessageRoleEnum
-import org.piecesapp.client.models.ReferencedConversation
+import org.openapitools.client.models.ConversationMessageSentimentEnum
+import org.openapitools.client.models.EmbeddedModelSchema
+import org.openapitools.client.models.FragmentFormat
+import org.openapitools.client.models.GroupedTimestamp
+import org.openapitools.client.models.Model
+import org.openapitools.client.models.QGPTConversationMessageRoleEnum
+import org.openapitools.client.models.ReferencedConversation
 
 import com.squareup.moshi.Json
 

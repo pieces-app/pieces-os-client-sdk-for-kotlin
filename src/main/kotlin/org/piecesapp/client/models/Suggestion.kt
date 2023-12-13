@@ -9,13 +9,13 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.models
+package org.openapitools.client.models
 
-import org.piecesapp.client.models.Assets
-import org.piecesapp.client.models.EmbeddedModelSchema
-import org.piecesapp.client.models.ReuseSuggestion
-import org.piecesapp.client.models.SaveSuggestion
-import org.piecesapp.client.models.SuggestionTarget
+import org.openapitools.client.models.Assets
+import org.openapitools.client.models.EmbeddedModelSchema
+import org.openapitools.client.models.ReuseSuggestion
+import org.openapitools.client.models.SaveSuggestion
+import org.openapitools.client.models.SuggestionTarget
 
 import com.squareup.moshi.Json
 

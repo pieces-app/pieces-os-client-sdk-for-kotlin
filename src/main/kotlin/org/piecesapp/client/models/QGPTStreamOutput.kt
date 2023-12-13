@@ -9,11 +9,11 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.models
+package org.openapitools.client.models
 
-import org.piecesapp.client.models.QGPTQuestionOutput
-import org.piecesapp.client.models.QGPTRelevanceOutput
-import org.piecesapp.client.models.QGPTStreamEnum
+import org.openapitools.client.models.QGPTQuestionOutput
+import org.openapitools.client.models.QGPTRelevanceOutput
+import org.openapitools.client.models.QGPTStreamEnum
 
 import com.squareup.moshi.Json
 

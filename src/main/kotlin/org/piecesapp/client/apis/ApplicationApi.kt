@@ -9,27 +9,27 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.apis
+package org.openapitools.client.apis
 
-import org.piecesapp.client.models.Application
+import org.openapitools.client.models.Application
 
-import org.piecesapp.client.infrastructure.ApiClient
-import org.piecesapp.client.infrastructure.ClientException
-import org.piecesapp.client.infrastructure.ClientError
-import org.piecesapp.client.infrastructure.ServerException
-import org.piecesapp.client.infrastructure.ServerError
-import org.piecesapp.client.infrastructure.MultiValueMap
-import org.piecesapp.client.infrastructure.RequestConfig
-import org.piecesapp.client.infrastructure.RequestMethod
-import org.piecesapp.client.infrastructure.ResponseType
-import org.piecesapp.client.infrastructure.Success
-import org.piecesapp.client.infrastructure.toMultiValue
+import org.openapitools.client.infrastructure.ApiClient
+import org.openapitools.client.infrastructure.ClientException
+import org.openapitools.client.infrastructure.ClientError
+import org.openapitools.client.infrastructure.ServerException
+import org.openapitools.client.infrastructure.ServerError
+import org.openapitools.client.infrastructure.MultiValueMap
+import org.openapitools.client.infrastructure.RequestConfig
+import org.openapitools.client.infrastructure.RequestMethod
+import org.openapitools.client.infrastructure.ResponseType
+import org.openapitools.client.infrastructure.Success
+import org.openapitools.client.infrastructure.toMultiValue
 
 class ApplicationApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty("org.piecesapp.client.baseUrl", "http://localhost:3000")
+            System.getProperties().getProperty("org.openapitools.client.baseUrl", "http://localhost:3000")
         }
     }
 

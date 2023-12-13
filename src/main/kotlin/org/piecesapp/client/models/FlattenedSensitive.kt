@@ -9,16 +9,16 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.models
+package org.openapitools.client.models
 
-import org.piecesapp.client.models.EmbeddedModelSchema
-import org.piecesapp.client.models.GroupedTimestamp
-import org.piecesapp.client.models.MechanismEnum
-import org.piecesapp.client.models.ReferencedAsset
-import org.piecesapp.client.models.Score
-import org.piecesapp.client.models.SensitiveCategoryEnum
-import org.piecesapp.client.models.SensitiveMetadata
-import org.piecesapp.client.models.SensitiveSeverityEnum
+import org.openapitools.client.models.EmbeddedModelSchema
+import org.openapitools.client.models.GroupedTimestamp
+import org.openapitools.client.models.MechanismEnum
+import org.openapitools.client.models.ReferencedAsset
+import org.openapitools.client.models.Score
+import org.openapitools.client.models.SensitiveCategoryEnum
+import org.openapitools.client.models.SensitiveMetadata
+import org.openapitools.client.models.SensitiveSeverityEnum
 
 import com.squareup.moshi.Json
 

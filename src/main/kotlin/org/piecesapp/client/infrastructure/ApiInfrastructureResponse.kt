@@ -1,4 +1,4 @@
-package org.piecesapp.client.infrastructure
+package org.openapitools.client.infrastructure
 
 enum class ResponseType {
     Success, Informational, Redirection, ClientError, ServerError

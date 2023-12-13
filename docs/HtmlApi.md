@@ -18,8 +18,8 @@ This is the webpage endpoint.
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = HtmlApi()
 val htmlWebpage : HtmlWebpage =  // HtmlWebpage | 

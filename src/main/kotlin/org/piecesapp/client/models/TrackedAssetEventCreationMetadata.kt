@@ -9,11 +9,11 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.models
+package org.openapitools.client.models
 
-import org.piecesapp.client.models.EmbeddedModelSchema
-import org.piecesapp.client.models.TrackedAssetEventCreationMetadataClipboard
-import org.piecesapp.client.models.TrackedAssetEventCreationMetadataFile
+import org.openapitools.client.models.EmbeddedModelSchema
+import org.openapitools.client.models.TrackedAssetEventCreationMetadataClipboard
+import org.openapitools.client.models.TrackedAssetEventCreationMetadataFile
 
 import com.squareup.moshi.Json
 

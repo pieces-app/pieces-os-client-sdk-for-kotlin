@@ -18,8 +18,8 @@ This will get a snapshot of all of your code analyses, a code analysis is attach
 ### Example
 ```kotlin
 // Import classes:
-//import org.piecesapp.client.infrastructure.*
-//import org.piecesapp.client.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = CodeAnalysesApi()
 try {

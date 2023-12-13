@@ -1,4 +1,4 @@
-package org.piecesapp.client.infrastructure
+package org.openapitools.client.infrastructure
 
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty

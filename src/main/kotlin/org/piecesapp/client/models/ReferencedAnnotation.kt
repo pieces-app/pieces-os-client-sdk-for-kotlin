@@ -9,10 +9,10 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.models
+package org.openapitools.client.models
 
-import org.piecesapp.client.models.EmbeddedModelSchema
-import org.piecesapp.client.models.FlattenedAnnotation
+import org.openapitools.client.models.EmbeddedModelSchema
+import org.openapitools.client.models.FlattenedAnnotation
 
 import com.squareup.moshi.Json
 
