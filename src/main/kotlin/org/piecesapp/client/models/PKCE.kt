@@ -9,15 +9,15 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.openapitools.client.models
+package org.piecesapp.client.models
 
-import org.openapitools.client.models.Auth0
-import org.openapitools.client.models.ChallengedPKCE
-import org.openapitools.client.models.EmbeddedModelSchema
-import org.openapitools.client.models.ResultedPKCE
-import org.openapitools.client.models.RevokedPKCE
-import org.openapitools.client.models.SeededPKCE
-import org.openapitools.client.models.TokenizedPKCE
+import org.piecesapp.client.models.Auth0
+import org.piecesapp.client.models.ChallengedPKCE
+import org.piecesapp.client.models.EmbeddedModelSchema
+import org.piecesapp.client.models.ResultedPKCE
+import org.piecesapp.client.models.RevokedPKCE
+import org.piecesapp.client.models.SeededPKCE
+import org.piecesapp.client.models.TokenizedPKCE
 
 import com.squareup.moshi.Json
 

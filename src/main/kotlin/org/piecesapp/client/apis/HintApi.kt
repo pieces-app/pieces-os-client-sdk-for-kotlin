@@ -9,28 +9,28 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.openapitools.client.apis
+package org.piecesapp.client.apis
 
-import org.openapitools.client.models.Hint
-import org.openapitools.client.models.SeededScoreIncrement
+import org.piecesapp.client.models.Hint
+import org.piecesapp.client.models.SeededScoreIncrement
 
-import org.openapitools.client.infrastructure.ApiClient
-import org.openapitools.client.infrastructure.ClientException
-import org.openapitools.client.infrastructure.ClientError
-import org.openapitools.client.infrastructure.ServerException
-import org.openapitools.client.infrastructure.ServerError
-import org.openapitools.client.infrastructure.MultiValueMap
-import org.openapitools.client.infrastructure.RequestConfig
-import org.openapitools.client.infrastructure.RequestMethod
-import org.openapitools.client.infrastructure.ResponseType
-import org.openapitools.client.infrastructure.Success
-import org.openapitools.client.infrastructure.toMultiValue
+import org.piecesapp.client.infrastructure.ApiClient
+import org.piecesapp.client.infrastructure.ClientException
+import org.piecesapp.client.infrastructure.ClientError
+import org.piecesapp.client.infrastructure.ServerException
+import org.piecesapp.client.infrastructure.ServerError
+import org.piecesapp.client.infrastructure.MultiValueMap
+import org.piecesapp.client.infrastructure.RequestConfig
+import org.piecesapp.client.infrastructure.RequestMethod
+import org.piecesapp.client.infrastructure.ResponseType
+import org.piecesapp.client.infrastructure.Success
+import org.piecesapp.client.infrastructure.toMultiValue
 
 class HintApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty("org.openapitools.client.baseUrl", "http://localhost:3000")
+            System.getProperties().getProperty("org.piecesapp.client.baseUrl", "http://localhost:3000")
         }
     }
 

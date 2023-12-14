@@ -1,0 +1,7 @@
+Commands to run from IntelliJ Terminal
+
+Run to execute the publishing jar build
+./gradlew build --warning-mode all
+
+Run as cleanup of build directory
+./gradlew clean --warning-mode all
