@@ -10,11 +10,28 @@ plugins {
     application
 }
 
+// TODO: is this even necessary for a publish?
+    application {
+        application
+    }
+
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(19))
 }
 
+/**
+ * Alternate tool chain, noticed it's stock on new kotlin projects, should we be using this instead of the java toolchain, or maybe both?
+ */
+/*
+kotlin {
+    jvmToolchain(19)
+}*/
 
+/**
+ * These are probably only necessary when building the all-inclusive jar, and not for the publishing jar?
+ * Classpath is the only one that I'm currently unsure of, looking through how other libraries are formed, they have classpaths and exports in files.
+ * Need to figure out if the classpath has to be included here for the needed dependencies to follow, defined elsewhere, or if that happens automatically once published to maven.
+ */
 dependencies {
     implementation("org.openapitools:openapi-generator:7.1.0")
     //implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
@@ -32,13 +49,12 @@ group = "org.piecesapp.kotlin"
 version = "0.0.1"
 
 
-// TODO: is this even necessary for a publish?
-application {
-    application
-}
-
-// TODO: brought back @jordan's publishing setup and kotlinized it, need details on specifics to flesh it out.
-// https://docs.gradle.org/current/userguide/publishing_maven.html
+/** TODO: brought back @jordan's publishing setup and kotlinized it, need details on specifics to flesh it out.
+ * https://docs.gradle.org/current/userguide/publishing_maven.html
+ * Overall publishing: publications is the setup for publishing directly to maven, repositories is to publish locally.
+ * To execute the publication I click the Gradle elephant on the right side of intellij, go to publishing,
+ * I pretty much just ran everything and haven't identified the full purpose of each publishing task.
+ */
 publishing {
     publications {
         create<MavenPublication>("myLibrary") {
@@ -49,11 +65,15 @@ publishing {
 
     repositories {
         maven {
-            name = "myRepo"
-            url = uri(layout.buildDirectory.dir("repo"))
+            name = "myRepo" //indeed it is
+            url = uri(layout.buildDirectory.dir("C:/Users/jerem/.m2/repository")) //replace with your local repository uri
         }
     }
 }
+
+
+
+
 
 
 // TODO: want to get these tests back in here but for now i removed them due to some versioning issues.
