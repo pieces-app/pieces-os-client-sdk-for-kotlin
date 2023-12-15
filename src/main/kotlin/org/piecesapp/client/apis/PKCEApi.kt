@@ -9,14 +9,14 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.openapitools.client.apis
+package org.piecesapp.client.apis
 
 import org.openapitools.client.models.EmbeddedModelSchema
 import org.openapitools.client.models.PKCE
 import org.openapitools.client.models.SeededPKCE
 import org.openapitools.client.models.TokenizedPKCE
 
-import org.openapitools.client.infrastructure.ApiClient
+import org.piecesapp.client.infrastructure.ApiClient
 import org.openapitools.client.infrastructure.ClientException
 import org.openapitools.client.infrastructure.ClientError
 import org.openapitools.client.infrastructure.ServerException
@@ -26,7 +26,6 @@ import org.openapitools.client.infrastructure.RequestConfig
 import org.openapitools.client.infrastructure.RequestMethod
 import org.openapitools.client.infrastructure.ResponseType
 import org.openapitools.client.infrastructure.Success
-import org.openapitools.client.infrastructure.toMultiValue
 
 class PKCEApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     companion object {

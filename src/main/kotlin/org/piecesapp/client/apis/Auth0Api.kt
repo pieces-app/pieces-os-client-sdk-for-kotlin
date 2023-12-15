@@ -9,14 +9,14 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.openapitools.client.apis
+package org.piecesapp.client.apis
 
 import org.openapitools.client.models.Auth0User
 import org.openapitools.client.models.EmbeddedModelSchema
 import org.openapitools.client.models.OAuthToken
 import org.openapitools.client.models.ResultedPKCE
 
-import org.openapitools.client.infrastructure.ApiClient
+import org.piecesapp.client.infrastructure.ApiClient
 import org.openapitools.client.infrastructure.ClientException
 import org.openapitools.client.infrastructure.ClientError
 import org.openapitools.client.infrastructure.ServerException
