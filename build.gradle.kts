@@ -1,4 +1,6 @@
-    repositories {
+import org.jetbrains.kotlin.ir.backend.js.getModuleDescriptorByLibrary
+
+repositories {
         mavenCentral()
         mavenLocal()
     }
@@ -8,6 +10,10 @@ plugins {
     id("maven-publish")
     id("signing")
     id("org.jetbrains.kotlin.jvm") version "1.9.21"
+}
+
+kotlin {
+    jvmToolchain(19)
 }
 
 java {
@@ -65,6 +71,19 @@ group = "org.piecesapp.kotlin"
 version = "0.0.1"
 
 publishing {
+    // adds attributes to manifest in generated jar file.  The entries are just for demonstration.
+    tasks.jar {
+        manifest {
+            attributes(
+                "Implementation-Title" to "Gradle",
+                "Implementation-Version" to archiveVersion,
+                "Import-Package" to "com.squareup.okhttp3:okhttp:4.12.0",
+                "Require-Capability" to "com.squareup.okhttp;\"version=[4.12.0)\"",
+                "Export-Package" to "com.squareup.okhttp;\"version=[4.12.0)\""
+            )
+        }
+    }
+
     publications {
         create<MavenPublication>("myLibrary") {
            from(components["kotlin"])
