@@ -1,5 +1,8 @@
-    repositories {
+import org.jetbrains.kotlin.ir.backend.js.getModuleDescriptorByLibrary
+
+repositories {
         mavenCentral()
+        mavenLocal()
     }
 
 plugins {
@@ -7,64 +10,107 @@ plugins {
     id("maven-publish")
     id("signing")
     id("org.jetbrains.kotlin.jvm") version "1.9.21"
-    application
+}
+
+kotlin {
+    jvmToolchain(19)
 }
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(19))
 }
 
+    // TODO: upgrade deps to follow this syntax for a range of versions and preferences
+//    dependencyResolutionManagement {
+//        versionCatalogs {
+//            create("libs") {
+//                library("groovy-core", "org.codehaus.groovy:groovy:3.0.5")
+//                library("groovy-json", "org.codehaus.groovy:groovy-json:3.0.5")
+//                library("groovy-nio", "org.codehaus.groovy:groovy-nio:3.0.5")
+//                library("commons-lang3", "org.apache.commons", "commons-lang3").version {
+//                    strictly("[3.8, 4.0[")
+//                    prefer("3.9")
+//                }
+//            }
+//        }
+//    }
 
 dependencies {
-    implementation("org.openapitools:openapi-generator:7.1.0")
-    //implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+
+    //implementation("org.openapitools:openapi-generator:7.1.0")
     implementation("com.squareup.moshi:moshi-kotlin:1.9.2")
     implementation("com.squareup.moshi:moshi-adapters:1.9.2")
     implementation("com.squareup.okhttp3:okhttp:4.2.2")
     testImplementation("io.kotlintest:kotlintest-runner-junit5:3.1.0")
-    //classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.21")
-    //implementation(project("pieces-os-client-sdk-for-kotlin"))
-    //implementation("")
-    implementation(kotlin("stdlib-jdk8"))
 }
 
-group = "org.piecesapp.kotlin"
-version = "0.0.1"
+group = "app.pieces.pieces-os-client"
+version = "1.0.0"
 
-
-// TODO: is this even necessary for a publish?
-application {
-    application
-}
-
-// TODO: brought back @jordan's publishing setup and kotlinized it, need details on specifics to flesh it out.
-// https://docs.gradle.org/current/userguide/publishing_maven.html
 publishing {
+    // adds attributes to manifest in generated jar file.  The entries are just for demonstration.
+    tasks.jar {
+        manifest {
+            attributes(
+                "Implementation-Title" to "Gradle",
+                "Implementation-Version" to archiveVersion,
+                "Import-Package" to "com.squareup.okhttp3:okhttp:4.12.0",
+                "Require-Capability" to "com.squareup.okhttp;\"version=[4.12.0)\"",
+                "Export-Package" to "com.squareup.okhttp;\"version=[4.12.0)\""
+            )
+        }
+    }
+
     publications {
         create<MavenPublication>("myLibrary") {
-                from(components["java"])
-                withBuildIdentifier()
+            from(components["kotlin"])
+            withBuildIdentifier()
+
+            pom {
+                name.set("Pieces OS Client")
+                description.set("Pieces APIs for functional usage with Pieces OS on your local machine and build your own contextual copilot.")
+                url.set("https://pieces.app/")
+                artifactId = "pieces-os-client"
+                groupId = "app.pieces.pieces-os-client"
+                version = "1.0.0"
+                licenses {
+                    license {
+                        name.set("MIT License")
+                        url.set("http://www.opensource.org/licenses/mit-license.php")
+                    }
+                }
+                developers {
+                    developer {
+                        organization.set("Pieces")
+                        organizationUrl.set("https://pieces.app")
+                        name.set("Open Source by Pieces (OSP)")
+                        email.set("development@pieces.app")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:git://github.com/pieces-app/pieces-os-client-sdk-for-kotlin.git")
+                    developerConnection.set("scm:git:ssh://github.com/pieces-app/pieces-os-client-sdk-for-kotlin.git")
+                    url.set("https://github.com/pieces-app/pieces-os-client-sdk-for-kotlin/tree/main")
+                }
+            }
         }
     }
 
     repositories {
         maven {
             name = "myRepo"
-            url = uri(layout.buildDirectory.dir("repo"))
+            url = uri(layout.buildDirectory.dir("C:/Users/jorda/.m2/repository"))
+        }
+    }
+
+    repositories {
+        maven {
+            name = "OSSRH"
+            setUrl("https://oss.sonatype.org/service/local/staging/deploy/maven2")
+            credentials {
+                username = System.getenv("OSSRH_USER") ?: return@credentials
+                password = System.getenv("OSSRH_PASSWORD") ?: return@credentials
+            }
         }
     }
 }
-
-
-// TODO: want to get these tests back in here but for now i removed them due to some versioning issues.
-// TODO: @kuba we will have to talk about the details here and if this can actually be skipped.
-//test {
-//    useJUnitPlatform()
-//}
-//
-//dependencies {
-//    // 1.9.21 <-- most recent version
-//    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-//    // 1.9.21 <-- most recent version
-
-//}
