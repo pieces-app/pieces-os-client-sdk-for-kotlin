@@ -9,19 +9,19 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.openapitools.client.models
+package org.piecesapp.client.models
 
-import org.openapitools.client.models.EmbeddedModelSchema
-import org.openapitools.client.models.FlattenedAnnotations
-import org.openapitools.client.models.FlattenedAssets
-import org.openapitools.client.models.FlattenedTags
-import org.openapitools.client.models.FlattenedWebsites
-import org.openapitools.client.models.GroupedTimestamp
-import org.openapitools.client.models.MechanismEnum
-import org.openapitools.client.models.PersonAccess
-import org.openapitools.client.models.PersonModel
-import org.openapitools.client.models.PersonType
-import org.openapitools.client.models.Score
+import org.piecesapp.client.models.EmbeddedModelSchema
+import org.piecesapp.client.models.FlattenedAnnotations
+import org.piecesapp.client.models.FlattenedAssets
+import org.piecesapp.client.models.FlattenedTags
+import org.piecesapp.client.models.FlattenedWebsites
+import org.piecesapp.client.models.GroupedTimestamp
+import org.piecesapp.client.models.MechanismEnum
+import org.piecesapp.client.models.PersonAccess
+import org.piecesapp.client.models.PersonModel
+import org.piecesapp.client.models.PersonType
+import org.piecesapp.client.models.Score
 
 import com.squareup.moshi.Json
 

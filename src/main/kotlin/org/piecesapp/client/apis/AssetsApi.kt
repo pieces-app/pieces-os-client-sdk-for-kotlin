@@ -11,34 +11,34 @@
 */
 package org.piecesapp.client.apis
 
-import org.openapitools.client.models.Asset
-import org.openapitools.client.models.Assets
-import org.openapitools.client.models.AssetsSearchWithFiltersInput
-import org.openapitools.client.models.AssetsSearchWithFiltersOutput
-import org.openapitools.client.models.FlattenedAssets
-import org.openapitools.client.models.Formats
-import org.openapitools.client.models.PseudoAssets
-import org.openapitools.client.models.SearchedAssets
-import org.openapitools.client.models.Seed
-import org.openapitools.client.models.SeededAssetsRecommendation
-import org.openapitools.client.models.StreamedIdentifiers
+import org.piecesapp.client.models.Asset
+import org.piecesapp.client.models.Assets
+import org.piecesapp.client.models.AssetsSearchWithFiltersInput
+import org.piecesapp.client.models.AssetsSearchWithFiltersOutput
+import org.piecesapp.client.models.FlattenedAssets
+import org.piecesapp.client.models.Formats
+import org.piecesapp.client.models.PseudoAssets
+import org.piecesapp.client.models.SearchedAssets
+import org.piecesapp.client.models.Seed
+import org.piecesapp.client.models.SeededAssetsRecommendation
+import org.piecesapp.client.models.StreamedIdentifiers
 
 import org.piecesapp.client.infrastructure.ApiClient
-import org.openapitools.client.infrastructure.ClientException
-import org.openapitools.client.infrastructure.ClientError
-import org.openapitools.client.infrastructure.ServerException
-import org.openapitools.client.infrastructure.ServerError
-import org.openapitools.client.infrastructure.MultiValueMap
-import org.openapitools.client.infrastructure.RequestConfig
-import org.openapitools.client.infrastructure.RequestMethod
-import org.openapitools.client.infrastructure.ResponseType
-import org.openapitools.client.infrastructure.Success
+import org.piecesapp.client.infrastructure.ClientException
+import org.piecesapp.client.infrastructure.ClientError
+import org.piecesapp.client.infrastructure.ServerException
+import org.piecesapp.client.infrastructure.ServerError
+import org.piecesapp.client.infrastructure.MultiValueMap
+import org.piecesapp.client.infrastructure.RequestConfig
+import org.piecesapp.client.infrastructure.RequestMethod
+import org.piecesapp.client.infrastructure.ResponseType
+import org.piecesapp.client.infrastructure.Success
 
 class AssetsApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty("org.openapitools.client.baseUrl", "http://localhost:3000")
+            System.getProperties().getProperty("org.piecesapp.client.baseUrl", "http://localhost:3000")
         }
     }
 

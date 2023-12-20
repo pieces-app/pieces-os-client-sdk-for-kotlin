@@ -1,5 +1,8 @@
-    repositories {
+import org.jetbrains.kotlin.ir.backend.js.getModuleDescriptorByLibrary
+
+repositories {
         mavenCentral()
+        mavenLocal()
     }
 
 plugins {
@@ -7,7 +10,10 @@ plugins {
     id("maven-publish")
     id("signing")
     id("org.jetbrains.kotlin.jvm") version "1.9.21"
-    application
+}
+
+kotlin {
+    jvmToolchain(19)
 }
 
 java {
@@ -32,7 +38,7 @@ java {
 dependencies {
 
     // old >
-    implementation("org.openapitools:openapi-generator:7.1.0")
+    //implementation("org.openapitools:openapi-generator:7.1.0")
     implementation("com.squareup.moshi:moshi-kotlin:1.9.2")
     implementation("com.squareup.moshi:moshi-adapters:1.9.2")
     implementation("com.squareup.okhttp3:okhttp:4.2.2")
@@ -64,13 +70,23 @@ dependencies {
 group = "org.piecesapp.kotlin"
 version = "0.0.1"
 
-application {
-    application
-}
 publishing {
+    // adds attributes to manifest in generated jar file.  The entries are just for demonstration.
+    tasks.jar {
+        manifest {
+            attributes(
+                "Implementation-Title" to "Gradle",
+                "Implementation-Version" to archiveVersion,
+                "Import-Package" to "com.squareup.okhttp3:okhttp:4.12.0",
+                "Require-Capability" to "com.squareup.okhttp;\"version=[4.12.0)\"",
+                "Export-Package" to "com.squareup.okhttp;\"version=[4.12.0)\""
+            )
+        }
+    }
+
     publications {
         create<MavenPublication>("myLibrary") {
-           from(components["java"])
+           from(components["kotlin"])
             withBuildIdentifier()
         }
     }
@@ -78,7 +94,7 @@ publishing {
     repositories {
         maven {
             name = "myRepo"
-            url = uri(layout.buildDirectory.dir("C:/Users/jorda/.m2/repository"))
+            url = uri(layout.buildDirectory.dir("C:/Users/jerem/.m2/repository"))
         }
     }
 }

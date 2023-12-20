@@ -9,25 +9,25 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.openapitools.client.models
+package org.piecesapp.client.models
 
-import org.openapitools.client.models.Activities
-import org.openapitools.client.models.Anchors
-import org.openapitools.client.models.Annotations
-import org.openapitools.client.models.Conversations
-import org.openapitools.client.models.EmbeddedModelSchema
-import org.openapitools.client.models.Formats
-import org.openapitools.client.models.GroupedTimestamp
-import org.openapitools.client.models.Hints
-import org.openapitools.client.models.MechanismEnum
-import org.openapitools.client.models.Persons
-import org.openapitools.client.models.Preview
-import org.openapitools.client.models.ReferencedFormat
-import org.openapitools.client.models.Score
-import org.openapitools.client.models.Sensitives
-import org.openapitools.client.models.Shares
-import org.openapitools.client.models.Tags
-import org.openapitools.client.models.Websites
+import org.piecesapp.client.models.Activities
+import org.piecesapp.client.models.Anchors
+import org.piecesapp.client.models.Annotations
+import org.piecesapp.client.models.Conversations
+import org.piecesapp.client.models.EmbeddedModelSchema
+import org.piecesapp.client.models.Formats
+import org.piecesapp.client.models.GroupedTimestamp
+import org.piecesapp.client.models.Hints
+import org.piecesapp.client.models.MechanismEnum
+import org.piecesapp.client.models.Persons
+import org.piecesapp.client.models.Preview
+import org.piecesapp.client.models.ReferencedFormat
+import org.piecesapp.client.models.Score
+import org.piecesapp.client.models.Sensitives
+import org.piecesapp.client.models.Shares
+import org.piecesapp.client.models.Tags
+import org.piecesapp.client.models.Websites
 
 import com.squareup.moshi.Json
 

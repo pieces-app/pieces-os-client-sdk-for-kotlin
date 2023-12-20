@@ -11,31 +11,31 @@
 */
 package org.piecesapp.client.apis
 
-import org.openapitools.client.models.DiscoveredAssets
-import org.openapitools.client.models.DiscoveredHtmlWebpages
-import org.openapitools.client.models.DiscoveredRelatedTags
-import org.openapitools.client.models.DiscoveredSensitives
-import org.openapitools.client.models.SeededDiscoverableAssets
-import org.openapitools.client.models.SeededDiscoverableHtmlWebpages
-import org.openapitools.client.models.SeededDiscoverableRelatedTags
-import org.openapitools.client.models.SeededDiscoverableSensitives
+import org.piecesapp.client.models.DiscoveredAssets
+import org.piecesapp.client.models.DiscoveredHtmlWebpages
+import org.piecesapp.client.models.DiscoveredRelatedTags
+import org.piecesapp.client.models.DiscoveredSensitives
+import org.piecesapp.client.models.SeededDiscoverableAssets
+import org.piecesapp.client.models.SeededDiscoverableHtmlWebpages
+import org.piecesapp.client.models.SeededDiscoverableRelatedTags
+import org.piecesapp.client.models.SeededDiscoverableSensitives
 
 import org.piecesapp.client.infrastructure.ApiClient
-import org.openapitools.client.infrastructure.ClientException
-import org.openapitools.client.infrastructure.ClientError
-import org.openapitools.client.infrastructure.ServerException
-import org.openapitools.client.infrastructure.ServerError
-import org.openapitools.client.infrastructure.MultiValueMap
-import org.openapitools.client.infrastructure.RequestConfig
-import org.openapitools.client.infrastructure.RequestMethod
-import org.openapitools.client.infrastructure.ResponseType
-import org.openapitools.client.infrastructure.Success
+import org.piecesapp.client.infrastructure.ClientException
+import org.piecesapp.client.infrastructure.ClientError
+import org.piecesapp.client.infrastructure.ServerException
+import org.piecesapp.client.infrastructure.ServerError
+import org.piecesapp.client.infrastructure.MultiValueMap
+import org.piecesapp.client.infrastructure.RequestConfig
+import org.piecesapp.client.infrastructure.RequestMethod
+import org.piecesapp.client.infrastructure.ResponseType
+import org.piecesapp.client.infrastructure.Success
 
 class DiscoveryApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty("org.openapitools.client.baseUrl", "http://localhost:3000")
+            System.getProperties().getProperty("org.piecesapp.client.baseUrl", "http://localhost:3000")
         }
     }
 

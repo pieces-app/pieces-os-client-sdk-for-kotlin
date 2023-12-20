@@ -11,7 +11,7 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.Request
 import okhttp3.Headers
 import okhttp3.MultipartBody
-import org.openapitools.client.infrastructure.*
+import org.piecesapp.client.infrastructure.*
 import java.io.File
 import java.net.URLConnection
 import java.util.Date

@@ -9,20 +9,20 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.openapitools.client.models
+package org.piecesapp.client.models
 
-import org.openapitools.client.models.ReferencedAnchor
-import org.openapitools.client.models.ReferencedAnnotation
-import org.openapitools.client.models.ReferencedHint
-import org.openapitools.client.models.ReferencedPerson
-import org.openapitools.client.models.ReferencedSensitive
-import org.openapitools.client.models.ReferencedShare
-import org.openapitools.client.models.ReferencedTag
-import org.openapitools.client.models.ReferencedWebsite
-import org.openapitools.client.models.TrackedAssetEventCreationMetadata
-import org.openapitools.client.models.TrackedAssetEventFormatReclassificationMetadata
-import org.openapitools.client.models.TrackedAssetEventRenameMetadata
-import org.openapitools.client.models.TrackedAssetsEventSearchMetadata
+import org.piecesapp.client.models.ReferencedAnchor
+import org.piecesapp.client.models.ReferencedAnnotation
+import org.piecesapp.client.models.ReferencedHint
+import org.piecesapp.client.models.ReferencedPerson
+import org.piecesapp.client.models.ReferencedSensitive
+import org.piecesapp.client.models.ReferencedShare
+import org.piecesapp.client.models.ReferencedTag
+import org.piecesapp.client.models.ReferencedWebsite
+import org.piecesapp.client.models.TrackedAssetEventCreationMetadata
+import org.piecesapp.client.models.TrackedAssetEventFormatReclassificationMetadata
+import org.piecesapp.client.models.TrackedAssetEventRenameMetadata
+import org.piecesapp.client.models.TrackedAssetsEventSearchMetadata
 
 import com.squareup.moshi.Json
 

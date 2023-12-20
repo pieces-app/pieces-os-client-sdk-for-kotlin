@@ -9,16 +9,16 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.openapitools.client.models
+package org.piecesapp.client.models
 
-import org.openapitools.client.models.AnchorTypeEnum
-import org.openapitools.client.models.EmbeddedModelSchema
-import org.openapitools.client.models.FlattenedAnchorPoints
-import org.openapitools.client.models.FlattenedAnnotations
-import org.openapitools.client.models.FlattenedAssets
-import org.openapitools.client.models.FlattenedConversations
-import org.openapitools.client.models.GroupedTimestamp
-import org.openapitools.client.models.Score
+import org.piecesapp.client.models.AnchorTypeEnum
+import org.piecesapp.client.models.EmbeddedModelSchema
+import org.piecesapp.client.models.FlattenedAnchorPoints
+import org.piecesapp.client.models.FlattenedAnnotations
+import org.piecesapp.client.models.FlattenedAssets
+import org.piecesapp.client.models.FlattenedConversations
+import org.piecesapp.client.models.GroupedTimestamp
+import org.piecesapp.client.models.Score
 
 import com.squareup.moshi.Json
 

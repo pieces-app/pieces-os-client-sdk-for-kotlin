@@ -1,0 +1,27 @@
+Commands to run from IntelliJ Terminal
+
+Run to execute the publishing jar build
+./gradlew build --warning-mode all
+
+Run as cleanup of build directory
+./gradlew clean --warning-mode all
+
+This gives a detailed dependency tree in terminal with some extra information that might be useful
+./gradlew dependencies
+
+Gradle build with more output information
+./gradlew build --warning-mode --verbose all
+
+Run tests
+./gradlew test --scan
+
+Run all tasks
+./gradlew tasks --all
+
+Lists all the tasks - the same ones you see when you click the gradle elephant - so you can publish from command line if you prefer
+./gradlew tasks check
+
+
+Lists what you can do with commands.
+./gradlew help
+
