@@ -1,9 +1,7 @@
-import org.jetbrains.kotlin.ir.backend.js.getModuleDescriptorByLibrary
-
 repositories {
-        mavenCentral()
-        mavenLocal()
-    }
+    mavenCentral()
+    mavenLocal()
+}
 
 plugins {
     id("java-library")
@@ -14,49 +12,55 @@ plugins {
 
 kotlin {
     jvmToolchain(19)
+    java.withJavadocJar()
 }
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(19))
 }
 
-    // TODO: upgrade deps to follow this syntax for a range of versions and preferences
-//    dependencyResolutionManagement {
-//        versionCatalogs {
-//            create("libs") {
-//                library("groovy-core", "org.codehaus.groovy:groovy:3.0.5")
-//                library("groovy-json", "org.codehaus.groovy:groovy-json:3.0.5")
-//                library("groovy-nio", "org.codehaus.groovy:groovy-nio:3.0.5")
-//                library("commons-lang3", "org.apache.commons", "commons-lang3").version {
-//                    strictly("[3.8, 4.0[")
-//                    prefer("3.9")
-//                }
-//            }
-//        }
-//    }
-
+/**
+ * Upgraded dependencies for strict version control, can also require, prefer, or reject other versions.
+ * Can also be configured for versions within a range.
+ */
 dependencies {
-
     //implementation("org.openapitools:openapi-generator:7.1.0")
-    implementation("com.squareup.moshi:moshi-kotlin:1.9.2")
-    implementation("com.squareup.moshi:moshi-adapters:1.9.2")
-    implementation("com.squareup.okhttp3:okhttp:4.2.2")
-    testImplementation("io.kotlintest:kotlintest-runner-junit5:3.1.0")
+    implementation("com.squareup.moshi:moshi-kotlin") {
+        version {
+            strictly("1.9.2")
+        }
+    }
+    implementation("com.squareup.moshi:moshi-adapters") {
+        version {
+            strictly("1.9.2")
+        }
+    }
+    implementation("com.squareup.okhttp3:okhttp") {
+        version {
+            strictly("4.2.2")
+        }
+    }
+    testImplementation("io.kotlintest:kotlintest-runner-junit5"){
+        version {
+            strictly("3.1.0")
+        }
+    }
 }
 
 group = "app.pieces.pieces-os-client"
 version = "1.0.0"
 
 publishing {
+
     // adds attributes to manifest in generated jar file.  The entries are just for demonstration.
     tasks.jar {
         manifest {
             attributes(
                 "Implementation-Title" to "Gradle",
                 "Implementation-Version" to archiveVersion,
-                "Import-Package" to "com.squareup.okhttp3:okhttp:4.12.0",
-                "Require-Capability" to "com.squareup.okhttp;\"version=[4.12.0)\"",
-                "Export-Package" to "com.squareup.okhttp;\"version=[4.12.0)\""
+                "Import-Package" to "com.squareup.okhttp3:okhttp:4.2.2",
+                "Require-Capability" to "com.squareup.okhttp;\"version=[4.2.2)\"",
+                "Export-Package" to "com.squareup.okhttp;\"version=[4.2.2)\""
             )
         }
     }
@@ -64,7 +68,18 @@ publishing {
     publications {
         create<MavenPublication>("myLibrary") {
             from(components["kotlin"])
-            withBuildIdentifier()
+
+            defaultArtifacts {
+                artifacts {
+                    artifact(tasks["kotlinSourcesJar"]) {
+                        classifier = "sources"
+                    }
+
+                    artifact(tasks["javadocJar"]) {
+                        classifier = "javadoc"
+                    }
+                }
+            }
 
             pom {
                 name.set("Pieces OS Client")
@@ -73,6 +88,7 @@ publishing {
                 artifactId = "pieces-os-client"
                 groupId = "app.pieces.pieces-os-client"
                 version = "1.0.0"
+
                 licenses {
                     license {
                         name.set("MIT License")
@@ -95,11 +111,10 @@ publishing {
             }
         }
     }
-
     repositories {
         maven {
             name = "myRepo"
-            url = uri(layout.buildDirectory.dir("C:/Users/jorda/.m2/repository"))
+            url = uri(layout.buildDirectory.dir("C:/Users/jerem/.m2/repository"))
         }
     }
 
@@ -113,4 +128,17 @@ publishing {
             }
         }
     }
+
+    /* in progress, working out signing
+    tasks.register<Jar>("MavenPublishingJar") {
+        archiveBaseName = "pieces-os-client-1.0.0"
+        from("build/libs/")
+    }
+
+    signing {
+        //sign(tasks.publishToMavenLocal.name)
+        //sign(tasks["MavenPublishingJar"])
+        sign(tasks["MavenPublishingJar"])
+    }
+*/
 }
