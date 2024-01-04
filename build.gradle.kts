@@ -89,7 +89,7 @@ publishing {
                     description.set("Pieces APIs for functional usage with Pieces OS on your local machine and build your own contextual copilot.")
                     url.set("https://pieces.app/")
                     artifactId = "pieces-os-client"
-                    groupId = "app.pieces.pieces-os-client"
+                    groupId = "app.pieces"
                     version = "1.0.0"
 
                 licenses {
