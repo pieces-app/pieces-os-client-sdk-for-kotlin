@@ -187,7 +187,7 @@ open class ApiClient(val baseUrl: String) {
         }
 
         // TODO: support multiple contentType options here.
-        val contentType = (headers[ContentType] as String).substringBefore(";").toLowerCase()
+        val contentType = (headers[ContentType] as String).substringBefore(";").lowercase()
 
         val request = when (requestConfig.method) {
             RequestMethod.DELETE -> Request.Builder().url(url).delete(requestBody(body, contentType))
@@ -202,7 +202,7 @@ open class ApiClient(val baseUrl: String) {
         }.build()
 
         val response = client.newCall(request).execute()
-        val accept = response.header(ContentType)?.substringBefore(";")?.toLowerCase()
+        val accept = response.header(ContentType)?.substringBefore(";")?.lowercase()
 
         // TODO: handle specific mapping types. e.g. Map<int, Class<?>>
         when {
