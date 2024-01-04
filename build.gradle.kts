@@ -24,6 +24,8 @@ java {
  * Can also be configured for versions within a range.
  */
 dependencies {
+    implementation(files())
+
     //implementation("org.openapitools:openapi-generator:7.1.0")
     implementation("com.squareup.moshi:moshi-kotlin") {
         version {
@@ -65,13 +67,14 @@ publishing {
         }
     }
 
+
     publications {
         create<MavenPublication>("myLibrary") {
             from(components["kotlin"])
 
             defaultArtifacts {
                 artifacts {
-                    artifact(tasks["kotlinSourcesJar"]) {
+                    artifact(archives(tasks["kotlinSourcesJar"])) {
                         classifier = "sources"
                     }
 
@@ -82,12 +85,12 @@ publishing {
             }
 
             pom {
-                name.set("Pieces OS Client")
-                description.set("Pieces APIs for functional usage with Pieces OS on your local machine and build your own contextual copilot.")
-                url.set("https://pieces.app/")
-                artifactId = "pieces-os-client"
-                groupId = "app.pieces.pieces-os-client"
-                version = "1.0.0"
+                    name.set("Pieces OS Client")
+                    description.set("Pieces APIs for functional usage with Pieces OS on your local machine and build your own contextual copilot.")
+                    url.set("https://pieces.app/")
+                    artifactId = "pieces-os-client"
+                    groupId = "app.pieces.pieces-os-client"
+                    version = "1.0.0"
 
                 licenses {
                     license {
@@ -109,8 +112,12 @@ publishing {
                     url.set("https://github.com/pieces-app/pieces-os-client-sdk-for-kotlin/tree/main")
                 }
             }
+            pom.withXml {
+                asNode().appendNode("packaging", "jar")
+            }
         }
     }
+
     repositories {
         maven {
             name = "myRepo"
@@ -134,11 +141,12 @@ publishing {
         archiveBaseName = "pieces-os-client-1.0.0"
         from("build/libs/")
     }
-
+*/
     signing {
         //sign(tasks.publishToMavenLocal.name)
         //sign(tasks["MavenPublishingJar"])
-        sign(tasks["MavenPublishingJar"])
+        useGpgCmd()
+        sign(publishing.publications["myLibrary"])
     }
-*/
+
 }
