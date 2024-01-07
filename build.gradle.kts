@@ -1,32 +1,111 @@
+/**
+ * repositories opens access to declare repositories
+ * https://docs.gradle.org/current/userguide/declaring_repositories.html#sec:declaring_public_repository
+ */
 repositories {
-    mavenCentral()
-    mavenLocal()
+    mavenCentral() //must have to retrieve dependencies from mavenCentral
+    /**
+     * https://docs.gradle.org/current/userguide/declaring_repositories.html#sec:case-for-maven-local
+     */
+    mavenLocal() //testing directory usually found at c:/users/.m2/repository on windows
 }
 
+/**
+ * plugins opens access to declare the necessary plugins for publishing
+ * https://docs.gradle.org/current/userguide/plugin_reference.html#header
+ */
 plugins {
-    id("java-library")
+    /**
+     *  Dokka plugin used to generate javadoc from kotlin files, can generate in javadoc, html, github markdown and jekyll markdown.
+     */
+    id("org.jetbrains.dokka") version "1.9.10"
+
+    /**
+     * https://docs.gradle.org/current/userguide/java_library_plugin.html#header
+     * opens access to java-library functions with api exposure(java is similar but doesn't open API access)
+     */
+    id("java-library") //
+
+    /**
+     * https://docs.gradle.org/current/userguide/publishing_maven.html#header
+     * opens access to the maven publishing functions
+     */
     id("maven-publish")
+    /**
+     * https://docs.gradle.org/current/userguide/signing_plugin.html#header
+     * opens access to signing functions
+     */
     id("signing")
+    /**
+     * allows kotlin to use java jvm toolchains & Kotlin DSL/API
+     * https://kotlinlang.org/docs/gradle-configure-project.html
+     */
     id("org.jetbrains.kotlin.jvm") version "1.9.21"
+    /**
+     * runs and generates report of dependency vulnerabilities, which may impact usage/publishing
+     * https://owasp.org/www-project-dependency-check/
+     * good to run could be disabled for build?
+     */
+    //id("org.owasp.dependencycheck") version "8.4.2"
+
+}
+
+/**
+ * generates dokkaGfmJar
+ */
+tasks.register<Jar>("dokkaGfmJar") {
+    dependsOn(tasks.dokkaGfm)
+    from(tasks.dokkaGfm.flatMap { it.outputDirectory })
+    archiveClassifier.set("gfmdocs")
+}
+
+/**
+ * generates dokkaHtmlJar
+ */
+tasks.register<Jar>("dokkaHtmlJar") {
+    dependsOn(tasks.dokkaHtml)
+    from(tasks.dokkaHtml.flatMap { it.outputDirectory })
+    archiveClassifier.set("html-docs")
+}
+
+/**
+ * creates javadocJar
+ */
+tasks.register<Jar>("dokkaJavadocJar").configure {
+    dependsOn(tasks.dokkaJavadoc)
+    from(tasks.dokkaJavadoc.flatMap { it.outputDirectory })
+    archiveClassifier.set("javadoc")
+}
+
+/**
+ * creates publishable kotlinSourcesJar, needed for automaticmanifest control
+ */
+
+tasks.register<Jar>("kotlinSources").configure {
+    dependsOn(tasks.kotlinSourcesJar)
+    from(fileTree("src"))
+    archiveClassifier.set("sources")
 }
 
 kotlin {
-    jvmToolchain(19)
-    java.withJavadocJar()
+    jvmToolchain(20)
 }
 
+// not necessary for purely kotlin builds
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(19))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(20))
+    withJavadocJar()
 }
 
 /**
  * Upgraded dependencies for strict version control, can also require, prefer, or reject other versions.
  * Can also be configured for versions within a range.
+ * Defining the dependencies here automatically includes them in the build.
  */
 dependencies {
-    implementation(files())
 
-    //implementation("org.openapitools:openapi-generator:7.1.0")
+    //implementation(files()) //not needed?
+    //implementation("org.openapitools:openapi-generator:7.1.0") //not needed?
     implementation("com.squareup.moshi:moshi-kotlin") {
         version {
             strictly("1.9.2")
@@ -52,8 +131,22 @@ dependencies {
 group = "app.pieces.pieces-os-client"
 version = "1.0.0"
 
-publishing {
 
+
+/**
+ * adds automatic generation of manifest entries from files
+ */
+tasks.withType<Jar>().configureEach {
+    manifest.attributes["Main-Class"] = "$group"
+    manifest.attributes["Class-Path"] = configurations
+        .runtimeClasspath
+        .get()
+        .joinToString(separator = " ") { file -> "libs/${file.name}" }
+    manifest.attributes["API"] = fileTree("src")
+        .joinToString(separator = " ") { file -> "${file.name}" }
+}
+
+publishing {
     // adds attributes to manifest in generated jar file.  The entries are just for demonstration.
     tasks.jar {
         manifest {
@@ -72,32 +165,53 @@ publishing {
         create<MavenPublication>("myLibrary") {
             from(components["kotlin"])
 
+            /**
+             * builds the sources and javadoc jar files automatically when executing publishing tasks
+             */
             defaultArtifacts {
                 artifacts {
-                    artifact(archives(tasks["kotlinSourcesJar"])) {
+                    artifact(archives(tasks["kotlinSources"])) {
                         classifier = "sources"
                     }
-
-                    artifact(tasks["javadocJar"]) {
+                    /**
+                     * reconfigured to generate kotlin javadoc files properly
+                     */
+                    artifact(archives(tasks["dokkaJavadocJar"])) {
                         classifier = "javadoc"
+                    }
+                    artifact(archives(tasks["dokkaHtmlJar"])) {
+                        classifier = "dokkahtml"
+                    }
+                    artifact(archives(tasks["dokkaGfmJar"])) {
+                        classifier = "gfmdocs"
                     }
                 }
             }
 
+            /**
+             * sets the properties of the generated pom file, to include all the sonatype requirements
+             */
             pom {
                     name.set("Pieces OS Client")
                     description.set("Pieces APIs for functional usage with Pieces OS on your local machine and build your own contextual copilot.")
                     url.set("https://pieces.app/")
                     artifactId = "pieces-os-client"
-                    groupId = "app.pieces"
-                    version = "1.0.0"
+                    groupId = "$group"
+                    version = version
 
+                /**
+                 * licenses
+                 */
                 licenses {
                     license {
                         name.set("MIT License")
                         url.set("http://www.opensource.org/licenses/mit-license.php")
                     }
                 }
+
+                /**
+                 * developers
+                 */
                 developers {
                     developer {
                         organization.set("Pieces")
@@ -106,25 +220,27 @@ publishing {
                         email.set("development@pieces.app")
                     }
                 }
+                /**
+                 * source control management node properties
+                 */
                 scm {
                     connection.set("scm:git:git://github.com/pieces-app/pieces-os-client-sdk-for-kotlin.git")
                     developerConnection.set("scm:git:ssh://github.com/pieces-app/pieces-os-client-sdk-for-kotlin.git")
                     url.set("https://github.com/pieces-app/pieces-os-client-sdk-for-kotlin/tree/main")
                 }
             }
+            /**
+             * edits the pom after initial creation, adds the packaging node with the value of jar
+             */
             pom.withXml {
                 asNode().appendNode("packaging", "jar")
             }
         }
     }
-
-    repositories {
-        maven {
-            name = "myRepo"
-            url = uri(layout.buildDirectory.dir("C:/Users/jerem/.m2/repository"))
-        }
-    }
-
+    /**
+     *
+     * sets up direct to maven publishing with signing
+     */
     repositories {
         maven {
             name = "OSSRH"
@@ -135,18 +251,33 @@ publishing {
             }
         }
     }
-
-    /* in progress, working out signing
-    tasks.register<Jar>("MavenPublishingJar") {
-        archiveBaseName = "pieces-os-client-1.0.0"
-        from("build/libs/")
+    /**
+     * allows local publication with signing, can be authenticated/tested with kleopatra/gpg to ensure signing is occuring before
+     * final publication
+     */
+    repositories {
+        maven {
+            name = "myRepo"
+            url = uri(layout.buildDirectory.dir("C:/Users/jerem/.m2/repository"))
+        }
     }
-*/
+    /**
+     * generate public/private keys and distribute the public key to pgp.mit.edu this step is required so sonatype
+     * can verify the checksums when publishing, without this step the publication will fail
+     * https://blog.sonatype.com/2010/01/how-to-generate-pgp-signatures-with-maven/
+     */
     signing {
-        //sign(tasks.publishToMavenLocal.name)
-        //sign(tasks["MavenPublishingJar"])
-        useGpgCmd()
-        sign(publishing.publications["myLibrary"])
+        useGpgCmd() // runs local gpg installation(I used gpg4win/kleopatra to generate keys)
+        sign(publishing.publications["myLibrary"]) // the publication being signed
     }
 
+}
+
+/**
+ * prints list of available sourcesets.
+ */
+sourceSets {
+    for(source in sourceSets){
+        println(source)
+    }
 }
