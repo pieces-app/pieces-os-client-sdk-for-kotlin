@@ -77,6 +77,12 @@ tasks.register<Jar>("dokkaJavadocJar").configure {
     archiveClassifier.set("javadoc")
 }
 
+tasks.register<Jar>("dokkaJekyllJar").configure {
+    dependsOn(tasks.dokkaJekyll)
+    from(tasks.dokkaJekyll.flatMap { it.outputDirectory })
+    archiveClassifier.set("dokkajekyll")
+}
+
 /**
  * creates publishable kotlinSourcesJar, needed for automaticmanifest control
  */
@@ -88,12 +94,12 @@ tasks.register<Jar>("kotlinSources").configure {
 }
 
 kotlin {
-    jvmToolchain(20)
+    jvmToolchain(17)
 }
 
 // not necessary for purely kotlin builds
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(20))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
     withJavadocJar()
 }
 
@@ -129,9 +135,17 @@ dependencies {
 }
 
 group = "app.pieces.pieces-os-client"
-version = "1.0.0"
-
-
+version = "1.0.1"
+/**
+tasks.jar {
+    manifest.attributes["Main-Class"] = "$group"
+    val dependencies = configurations
+        .runtimeClasspath
+        .get()
+        .map(::zipTree) // OR .map { zipTree(it) }
+    from(dependencies)
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}*/
 
 /**
  * adds automatic generation of manifest entries from files
@@ -146,6 +160,7 @@ tasks.withType<Jar>().configureEach {
         .joinToString(separator = " ") { file -> "${file.name}" }
 }
 
+
 publishing {
     // adds attributes to manifest in generated jar file.  The entries are just for demonstration.
     tasks.jar {
@@ -159,7 +174,6 @@ publishing {
             )
         }
     }
-
 
     publications {
         create<MavenPublication>("myLibrary") {
@@ -184,6 +198,9 @@ publishing {
                     }
                     artifact(archives(tasks["dokkaGfmJar"])) {
                         classifier = "gfmdocs"
+                    }
+                    artifact(archives(tasks["dokkaJekyllJar"])) {
+                        classifier = "dokkajekyll"
                     }
                 }
             }
