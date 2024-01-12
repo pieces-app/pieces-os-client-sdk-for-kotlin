@@ -51,24 +51,6 @@ plugins {
 }
 
 /**
- * generates dokkaGfmJar
- */
-tasks.register<Jar>("dokkaGfmJar") {
-    dependsOn(tasks.dokkaGfm)
-    from(tasks.dokkaGfm.flatMap { it.outputDirectory })
-    archiveClassifier.set("gfmdocs")
-}
-
-/**
- * generates dokkaHtmlJar
- */
-tasks.register<Jar>("dokkaHtmlJar") {
-    dependsOn(tasks.dokkaHtml)
-    from(tasks.dokkaHtml.flatMap { it.outputDirectory })
-    archiveClassifier.set("html-docs")
-}
-
-/**
  * creates javadocJar
  */
 tasks.register<Jar>("dokkaJavadocJar").configure {
@@ -77,16 +59,9 @@ tasks.register<Jar>("dokkaJavadocJar").configure {
     archiveClassifier.set("javadoc")
 }
 
-tasks.register<Jar>("dokkaJekyllJar").configure {
-    dependsOn(tasks.dokkaJekyll)
-    from(tasks.dokkaJekyll.flatMap { it.outputDirectory })
-    archiveClassifier.set("dokkajekyll")
-}
-
 /**
  * creates publishable kotlinSourcesJar, needed for automaticmanifest control
  */
-
 tasks.register<Jar>("kotlinSources").configure {
     dependsOn(tasks.kotlinSourcesJar)
     from(fileTree("src"))
@@ -136,16 +111,6 @@ dependencies {
 
 group = "app.pieces.pieces-os-client"
 version = "1.0.1"
-/**
-tasks.jar {
-    manifest.attributes["Main-Class"] = "$group"
-    val dependencies = configurations
-        .runtimeClasspath
-        .get()
-        .map(::zipTree) // OR .map { zipTree(it) }
-    from(dependencies)
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-}*/
 
 /**
  * adds automatic generation of manifest entries from files
@@ -193,15 +158,7 @@ publishing {
                     artifact(archives(tasks["dokkaJavadocJar"])) {
                         classifier = "javadoc"
                     }
-                    artifact(archives(tasks["dokkaHtmlJar"])) {
-                        classifier = "dokkahtml"
-                    }
-                    artifact(archives(tasks["dokkaGfmJar"])) {
-                        classifier = "gfmdocs"
-                    }
-                    artifact(archives(tasks["dokkaJekyllJar"])) {
-                        classifier = "dokkajekyll"
-                    }
+
                 }
             }
 
