@@ -1,3 +1,7 @@
+/**
+ * Needed to use plugins in build.gradle files
+ */
+
 pluginManagement {
     repositories {
         gradlePluginPortal()

@@ -209,3 +209,4 @@ README.html
 .idea
 .exercism
 .env
+*.hprof
