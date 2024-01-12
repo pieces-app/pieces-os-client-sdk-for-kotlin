@@ -20,8 +20,8 @@ This will get a snapshot of a specific cloud.
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = CloudApi()
 val cloud : kotlin.String = cloud_example // kotlin.String | 
@@ -67,8 +67,8 @@ This will update a specific cloud.
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = CloudApi()
 val cloud : Cloud =  // Cloud | 
@@ -114,8 +114,8 @@ This allows for sending local semver and retrieving information on whether it is
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = CloudApi()
 val body : kotlin.String = body_example // kotlin.String | 

@@ -19,8 +19,8 @@ This will get a snapshot of a specific allocation.
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = AllocationApi()
 val allocation : kotlin.String = allocation_example // kotlin.String | 
@@ -66,8 +66,8 @@ This will update a specific allocation.
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = AllocationApi()
 val allocationCloud : AllocationCloud =  // AllocationCloud | 

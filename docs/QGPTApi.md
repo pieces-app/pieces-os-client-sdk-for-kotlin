@@ -23,8 +23,8 @@ This is only to generate suggested questions that the user can ask. ( we will pr
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = QGPTApi()
 val qgPTHintsInput : QGPTHintsInput =  // QGPTHintsInput | 
@@ -70,8 +70,8 @@ This Endpoint is used for Who Support.  IE given context like a Seed, or a qgptC
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = QGPTApi()
 val transferables : kotlin.Boolean = true // kotlin.Boolean | This is a boolean that will decided if we are want to return the transferable data (default) or not(performance enhancement)
@@ -119,8 +119,8 @@ This is a version of qGPT stream that will stream the inputs.  This will handle 
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = QGPTApi()
 val qgPTStreamInput : QGPTStreamInput =  // QGPTStreamInput | 
@@ -166,8 +166,8 @@ This is going to accept, relevant code snippets or uuids returned from the /qgpt
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = QGPTApi()
 val qgPTQuestionInput : QGPTQuestionInput =  // QGPTQuestionInput | 
@@ -213,8 +213,8 @@ This is the first phase to the QGPT flow.  Please one of the following. 1. provi
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = QGPTApi()
 val qgPTRelevanceInput : QGPTRelevanceInput =  // QGPTRelevanceInput | 
@@ -260,8 +260,8 @@ This will take in a followup question and the history of the conversation, and e
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = QGPTApi()
 val qgPTRepromptInput : QGPTRepromptInput =  // QGPTRepromptInput | 

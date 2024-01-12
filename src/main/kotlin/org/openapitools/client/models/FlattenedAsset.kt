@@ -9,24 +9,24 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.openapitools.client.models
+package org.piecesapp.client.models
 
-import org.openapitools.client.models.EmbeddedModelSchema
-import org.openapitools.client.models.FlattenedActivities
-import org.openapitools.client.models.FlattenedAnchors
-import org.openapitools.client.models.FlattenedAnnotations
-import org.openapitools.client.models.FlattenedConversations
-import org.openapitools.client.models.FlattenedFormats
-import org.openapitools.client.models.FlattenedHints
-import org.openapitools.client.models.FlattenedPersons
-import org.openapitools.client.models.FlattenedPreview
-import org.openapitools.client.models.FlattenedSensitives
-import org.openapitools.client.models.FlattenedShares
-import org.openapitools.client.models.FlattenedTags
-import org.openapitools.client.models.FlattenedWebsites
-import org.openapitools.client.models.GroupedTimestamp
-import org.openapitools.client.models.MechanismEnum
-import org.openapitools.client.models.Score
+import org.piecesapp.client.models.EmbeddedModelSchema
+import org.piecesapp.client.models.FlattenedActivities
+import org.piecesapp.client.models.FlattenedAnchors
+import org.piecesapp.client.models.FlattenedAnnotations
+import org.piecesapp.client.models.FlattenedConversations
+import org.piecesapp.client.models.FlattenedFormats
+import org.piecesapp.client.models.FlattenedHints
+import org.piecesapp.client.models.FlattenedPersons
+import org.piecesapp.client.models.FlattenedPreview
+import org.piecesapp.client.models.FlattenedSensitives
+import org.piecesapp.client.models.FlattenedShares
+import org.piecesapp.client.models.FlattenedTags
+import org.piecesapp.client.models.FlattenedWebsites
+import org.piecesapp.client.models.GroupedTimestamp
+import org.piecesapp.client.models.MechanismEnum
+import org.piecesapp.client.models.Score
 
 import com.squareup.moshi.Json
 

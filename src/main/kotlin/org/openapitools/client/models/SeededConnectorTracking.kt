@@ -9,18 +9,18 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.openapitools.client.models
+package org.piecesapp.client.models
 
-import org.openapitools.client.models.EmbeddedModelSchema
-import org.openapitools.client.models.SeededTrackedAdoptionEvent
-import org.openapitools.client.models.SeededTrackedAssetEvent
-import org.openapitools.client.models.SeededTrackedAssetsEvent
-import org.openapitools.client.models.SeededTrackedConversationEvent
-import org.openapitools.client.models.SeededTrackedFormatEvent
-import org.openapitools.client.models.SeededTrackedInteractionEvent
-import org.openapitools.client.models.SeededTrackedKeyboardEvent
-import org.openapitools.client.models.SeededTrackedMachineLearningEvent
-import org.openapitools.client.models.SeededTrackedSessionEvent
+import org.piecesapp.client.models.EmbeddedModelSchema
+import org.piecesapp.client.models.SeededTrackedAdoptionEvent
+import org.piecesapp.client.models.SeededTrackedAssetEvent
+import org.piecesapp.client.models.SeededTrackedAssetsEvent
+import org.piecesapp.client.models.SeededTrackedConversationEvent
+import org.piecesapp.client.models.SeededTrackedFormatEvent
+import org.piecesapp.client.models.SeededTrackedInteractionEvent
+import org.piecesapp.client.models.SeededTrackedKeyboardEvent
+import org.piecesapp.client.models.SeededTrackedMachineLearningEvent
+import org.piecesapp.client.models.SeededTrackedSessionEvent
 
 import com.squareup.moshi.Json
 

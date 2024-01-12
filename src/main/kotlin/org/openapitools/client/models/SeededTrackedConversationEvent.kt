@@ -9,12 +9,12 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.openapitools.client.models
+package org.piecesapp.client.models
 
-import org.openapitools.client.models.EmbeddedModelSchema
-import org.openapitools.client.models.ReferencedConversation
-import org.openapitools.client.models.TrackedConversationEventIdentifierDescriptionPairs
-import org.openapitools.client.models.TrackedConversationEventMetadata
+import org.piecesapp.client.models.EmbeddedModelSchema
+import org.piecesapp.client.models.ReferencedConversation
+import org.piecesapp.client.models.TrackedConversationEventIdentifierDescriptionPairs
+import org.piecesapp.client.models.TrackedConversationEventMetadata
 
 import com.squareup.moshi.Json
 

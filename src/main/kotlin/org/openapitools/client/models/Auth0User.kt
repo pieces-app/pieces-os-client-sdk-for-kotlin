@@ -9,10 +9,10 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.openapitools.client.models
+package org.piecesapp.client.models
 
-import org.openapitools.client.models.Auth0Identity
-import org.openapitools.client.models.Auth0UserMetadata
+import org.piecesapp.client.models.Auth0Identity
+import org.piecesapp.client.models.Auth0UserMetadata
 
 import com.squareup.moshi.Json
 
