@@ -20,8 +20,8 @@ This will create a new Activity.
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = ActivitiesApi()
 val transferables : kotlin.Boolean = true // kotlin.Boolean | This is a boolean that will decided if we are want to return the transferable data (default) or not(performance enhancement)
@@ -69,8 +69,8 @@ This will delete a specific activity.  important note: if we delete an activity:
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = ActivitiesApi()
 val activity : kotlin.String = activity_example // kotlin.String | This is a specific activity uuid.
@@ -115,8 +115,8 @@ This will get a snapshot of all of the activities
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = ActivitiesApi()
 val transferables : kotlin.Boolean = true // kotlin.Boolean | This is a boolean that will decided if we are want to return the transferable data (default) or not(performance enhancement)

@@ -23,8 +23,8 @@ This will link an external provider to your current auth0 account.  Will throw e
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = OSApi()
 val seededExternalProvider : SeededExternalProvider =  // SeededExternalProvider | 
@@ -70,8 +70,8 @@ This will restart PiecesOS, if successfull with return a 204. This is a LOCALOS 
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = OSApi()
 try {
@@ -112,8 +112,8 @@ This will trigger a filer picker and return the string paths of the files that w
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = OSApi()
 val filePickerInput : FilePickerInput =  // FilePickerInput | 
@@ -159,8 +159,8 @@ This will trigger a folder picker and return the string paths of the folders tha
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = OSApi()
 try {
@@ -202,8 +202,8 @@ A trigger that launches a Sign into OS Server
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = OSApi()
 try {
@@ -245,8 +245,8 @@ A trigger that signs out a user from the OS
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = OSApi()
 try {

@@ -20,8 +20,8 @@ This will create an annotation.
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = AnnotationsApi()
 val seededAnnotation : SeededAnnotation =  // SeededAnnotation | 
@@ -67,8 +67,8 @@ this will delete a specific annotation
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = AnnotationsApi()
 val annotation : kotlin.String = annotation_example // kotlin.String | This is a specific annotation uuid.
@@ -113,8 +113,8 @@ This will get a snapshot of all the annotations.  This will take an optional fil
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = AnnotationsApi()
 val annotationTypeFilter : kotlin.String = annotationTypeFilter_example // kotlin.String | This is an AnnotationTypeEnum as a optional filter.

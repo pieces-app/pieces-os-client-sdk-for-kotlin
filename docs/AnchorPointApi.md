@@ -20,8 +20,8 @@ This will take in a SeededScoreIncrement and will increment the material relativ
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = AnchorPointApi()
 val anchorPoint : kotlin.String = anchorPoint_example // kotlin.String | This is the specific uuid of an anchor_point.
@@ -68,8 +68,8 @@ This will get a snapshot of a single anchorPoint.
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = AnchorPointApi()
 val anchorPoint : kotlin.String = anchorPoint_example // kotlin.String | This is the specific uuid of an anchor_point.
@@ -117,8 +117,8 @@ This will update a specific anchorPoint.
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = AnchorPointApi()
 val transferables : kotlin.Boolean = true // kotlin.Boolean | This is a boolean that will decided if we are want to return the transferable data (default) or not(performance enhancement)

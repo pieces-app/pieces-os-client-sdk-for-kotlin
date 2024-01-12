@@ -24,8 +24,8 @@ An endpoint to clear the current user.
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = UserApi()
 try {
@@ -66,8 +66,8 @@ This will select the current user.
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = UserApi()
 val auth0User : Auth0User =  // Auth0User | 
@@ -119,8 +119,8 @@ This will stream in the current user, not quiet sure yet how we want to do this.
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = UserApi()
 try {
@@ -162,8 +162,8 @@ This will update a specific user in the database.
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = UserApi()
 val userProfile : UserProfile =  // UserProfile | 
@@ -209,8 +209,8 @@ This will retrieve all the users Providers that are connected to this account.  
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = UserApi()
 try {
@@ -252,8 +252,8 @@ This will return a snapshot of the current user. This will return our ReturnUser
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = UserApi()
 try {
@@ -295,8 +295,8 @@ This is a local route to update your vanityname. ie mark.pieces.cloud, where \&q
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = UserApi()
 val userProfile : UserProfile =  // UserProfile | This will take an update userProfile, with the updated vanity name!

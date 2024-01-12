@@ -18,8 +18,8 @@ This will reurn all of the relationships that exists within your pieces db.
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = RelationshipsApi()
 try {
