@@ -1,6 +1,6 @@
 /**
-* Pieces Isomorphic OpenAPI
-* Endpoints for Assets, Formats, Users, Asset, Format, User.
+* This is an open API that holds specific endpoints as a base for Pieces Context Systems
+* The point of this API is to allow us to organize and Auto Generate Code Specific for Connected Applications - this will allow for stateful context abstraction & less code within the Core Connector
 *
 * The version of the OpenAPI document: 1.0
 * Contact: tsavo@pieces.app
@@ -9,33 +9,35 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.apis
+package org.openapitools.client.apis
 
-import org.piecesapp.client.models.Context
-import org.piecesapp.client.models.Reaction
-import org.piecesapp.client.models.SeededConnectorAsset
-import org.piecesapp.client.models.SeededConnectorConnection
-import org.piecesapp.client.models.SeededConnectorCreation
-import org.piecesapp.client.models.SeededConnectorTracking
-import org.piecesapp.client.models.Suggestion
+import org.openapitools.client.models.ConnectorSnapshot
+import org.openapitools.client.models.Context
+import org.openapitools.client.models.Reaction
+import org.openapitools.client.models.Searched
+import org.openapitools.client.models.SeededConnectorAsset
+import org.openapitools.client.models.SeededConnectorConnection
+import org.openapitools.client.models.SeededConnectorCreation
+import org.openapitools.client.models.SeededConnectorTracking
+import org.openapitools.client.models.Suggestion
 
-import org.piecesapp.client.infrastructure.ApiClient
-import org.piecesapp.client.infrastructure.ClientException
-import org.piecesapp.client.infrastructure.ClientError
-import org.piecesapp.client.infrastructure.ServerException
-import org.piecesapp.client.infrastructure.ServerError
-import org.piecesapp.client.infrastructure.MultiValueMap
-import org.piecesapp.client.infrastructure.RequestConfig
-import org.piecesapp.client.infrastructure.RequestMethod
-import org.piecesapp.client.infrastructure.ResponseType
-import org.piecesapp.client.infrastructure.Success
-import org.piecesapp.client.infrastructure.toMultiValue
+import org.openapitools.client.infrastructure.ApiClient
+import org.openapitools.client.infrastructure.ClientException
+import org.openapitools.client.infrastructure.ClientError
+import org.openapitools.client.infrastructure.ServerException
+import org.openapitools.client.infrastructure.ServerError
+import org.openapitools.client.infrastructure.MultiValueMap
+import org.openapitools.client.infrastructure.RequestConfig
+import org.openapitools.client.infrastructure.RequestMethod
+import org.openapitools.client.infrastructure.ResponseType
+import org.openapitools.client.infrastructure.Success
+import org.openapitools.client.infrastructure.toMultiValue
 
 class ConnectorApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty("org.piecesapp.client.baseUrl", "http://localhost:3000")
+            System.getProperties().getProperty("org.openapitools.client.baseUrl", "http://localhost:1000")
         }
     }
 
@@ -67,6 +69,48 @@ class ConnectorApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePa
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Context
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+    * /{application}/create [POST]
+    * A simple endpoint to create either a format or asset depending on the data passed
+    * @param application This is a uuid that represents an application 
+    * @param seededConnectorCreation  (optional)
+    * @return kotlin.String
+    * @throws UnsupportedOperationException If the API returns an informational or redirection response
+    * @throws ClientException If the API returns a client error response
+    * @throws ServerException If the API returns a server error response
+    */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun create(application: kotlin.String, seededConnectorCreation: SeededConnectorCreation?) : kotlin.String {
+        val localVariableBody: kotlin.Any? = seededConnectorCreation
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.POST,
+            "/{application}/create".replace("{"+"application"+"}", "$application"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val localVarResponse = request<kotlin.String>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.String
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -193,6 +237,120 @@ class ConnectorApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePa
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.String
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+    * [GET] /{application}/search?query&#x3D;string
+    * This is the connector search endpoint that will take a query parameter to search all of your assets! (soon) will also be able to search your formats as well!  Required to pass searchable_tags (csv of tags) or a query string.  if a query is passed we will run through fuzzy search.  if searchable_tags are passed we will run through tag_based_search.  if neither are passed in we will return a 500.
+    * @param application This is a uuid that represents an application 
+    * @param query This is a string that you can use to search your assets. (optional)
+    * @param transferables This is a boolean that will decided if we are want to return the transferable data (default) or not(performance enhancement) (optional)
+    * @param searchableTags This is a comma separated value of tags used for search. (optional)
+    * @param pseudo This is helper boolean that will give you the ability to also include your pseudo assets, we will always default to false. (optional)
+    * @return Searched
+    * @throws UnsupportedOperationException If the API returns an informational or redirection response
+    * @throws ClientException If the API returns a client error response
+    * @throws ServerException If the API returns a server error response
+    */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun search(application: kotlin.String, query: kotlin.String?, transferables: kotlin.Boolean?, searchableTags: kotlin.String?, pseudo: kotlin.Boolean?) : Searched {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, List<kotlin.String>>()
+            .apply {
+                if (query != null) {
+                    put("query", listOf(query.toString()))
+                }
+                if (transferables != null) {
+                    put("transferables", listOf(transferables.toString()))
+                }
+                if (searchableTags != null) {
+                    put("searchable_tags", listOf(searchableTags.toString()))
+                }
+                if (pseudo != null) {
+                    put("pseudo", listOf(pseudo.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/{application}/search".replace("{"+"application"+"}", "$application"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val localVarResponse = request<Searched>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Searched
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+    * /snapshot [POST]
+    * Getting the snapshot of the current context which is everything the current connected application could need to provide to the user.
+    * @param application This is a uuid that represents an application 
+    * @param transferables This is a boolean that will decided if we are want to return the transferable data (default) or not(performance enhancement) (optional)
+    * @param suggested This will let us know if a developer, wants a snapshot related to suggested content or normal content (optional)
+    * @param pseudo This is helper boolean that will give you the ability to also include your pseudo assets, we will always default to false. (optional)
+    * @return ConnectorSnapshot
+    * @throws UnsupportedOperationException If the API returns an informational or redirection response
+    * @throws ClientException If the API returns a client error response
+    * @throws ServerException If the API returns a server error response
+    */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun snapshot(application: kotlin.String, transferables: kotlin.Boolean?, suggested: kotlin.Boolean?, pseudo: kotlin.Boolean?) : ConnectorSnapshot {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, List<kotlin.String>>()
+            .apply {
+                if (transferables != null) {
+                    put("transferables", listOf(transferables.toString()))
+                }
+                if (suggested != null) {
+                    put("suggested", listOf(suggested.toString()))
+                }
+                if (pseudo != null) {
+                    put("pseudo", listOf(pseudo.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/{application}/snapshot".replace("{"+"application"+"}", "$application"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val localVarResponse = request<ConnectorSnapshot>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as ConnectorSnapshot
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
