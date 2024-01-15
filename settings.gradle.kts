@@ -1,7 +1,6 @@
 /**
  * Needed to use plugins in build.gradle files
  */
-
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -9,8 +8,22 @@ pluginManagement {
     }
 }
 
+/**
+ * Plugins and toolChainManagement added to enforce jvmtoolchain version
+ */
+plugins {
+    id("org.gradle.toolchains.foojay-resolver") version "0.8.0"
+}
 
-
+toolchainManagement {
+    jvm {
+        javaRepositories {
+            repository("foojay") {
+                resolverClass.set(org.gradle.toolchains.foojay.FoojayToolchainResolver::class.java)
+            }
+        }
+    }
+}
 
 dependencyResolutionManagement {
     repositories{
@@ -19,12 +32,3 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "pieces-os-client"
-
-//include("src:main:kotlin:org:piecesapp:client:apis")
-//include("src:main:kotlin:org:piecesapp:client:infrastructure")
-//include("src:main:kotlin:org:piecesapp:client:models")
-
-
-//rootDir.listFiles().filter { it.isDirectory && !it.isHidden }.forEach {
-    //include(it.name)
-//}

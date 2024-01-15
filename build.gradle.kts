@@ -5,9 +5,10 @@
 repositories {
     mavenCentral() //must have to retrieve dependencies from mavenCentral
     /**
+     * testing directory usually found at c:/users/{username}/.m2/repository on windows
      * https://docs.gradle.org/current/userguide/declaring_repositories.html#sec:case-for-maven-local
      */
-    mavenLocal() //testing directory usually found at c:/users/.m2/repository on windows
+    mavenLocal()
 }
 
 /**
@@ -46,7 +47,7 @@ plugins {
      * https://owasp.org/www-project-dependency-check/
      * good to run could be disabled for build?
      */
-    //id("org.owasp.dependencycheck") version "8.4.2"
+    id("org.owasp.dependencycheck") version "8.4.2"
 
 }
 
@@ -166,12 +167,12 @@ publishing {
              * sets the properties of the generated pom file, to include all the sonatype requirements
              */
             pom {
-                    name.set("Pieces OS Client")
-                    description.set("Pieces APIs for functional usage with Pieces OS on your local machine and build your own contextual copilot.")
-                    url.set("https://pieces.app/")
-                    artifactId = "pieces-os-client"
-                    groupId = "$group"
-                    version = version
+                name.set("Pieces OS Client")
+                description.set("Pieces APIs for functional usage with Pieces OS on your local machine and build your own contextual copilot.")
+                url.set("https://pieces.app/")
+                artifactId = "pieces-os-client"
+                groupId = "$group"
+                version = version
 
                 /**
                  * licenses
