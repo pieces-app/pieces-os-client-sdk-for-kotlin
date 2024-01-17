@@ -13,7 +13,7 @@ package org.piecesapp.client.models
 
 
 import com.squareup.moshi.Json
-import org.piecesapp.client.apis.TLPSensitive
+import org.piecesapp.client.models.TLPSensitive
 
 /**
  * This is a model that represents many individual sensitive pieces of data.
