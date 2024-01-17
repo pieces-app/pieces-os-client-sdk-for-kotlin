@@ -13,11 +13,11 @@ plugins {
 }
 
 kotlin {
-    jvmToolchain(19)
+    jvmToolchain(17)
 }
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(19))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 }
 
     // TODO: upgrade deps to follow this syntax for a range of versions and preferences
