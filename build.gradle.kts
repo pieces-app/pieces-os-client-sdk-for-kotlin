@@ -45,7 +45,7 @@ dependencies {
 }
 
 group = "app.pieces.pieces-os-client"
-version = "1.0.0"
+version = "1.2.2"
 
 publishing {
     // adds attributes to manifest in generated jar file.  The entries are just for demonstration.
