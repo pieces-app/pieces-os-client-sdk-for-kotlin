@@ -9,7 +9,7 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.apis
+package org.piecesapp.client.models
 
 
 import com.squareup.moshi.Json
@@ -19,8 +19,8 @@ import com.squareup.moshi.Json
  * @param iterable 
  */
 
-data class TLPModels (
+data class TLPLanguages (
     @Json(name = "iterable")
-    val iterable: kotlin.collections.List<TLPModel>
+    val iterable: kotlin.collections.List<TLPLanguage>
 )
 

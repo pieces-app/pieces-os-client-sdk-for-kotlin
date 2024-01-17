@@ -9,21 +9,24 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.apis
+package org.piecesapp.client.models
 
 
 import com.squareup.moshi.Json
 
 /**
  * 
- * @param value 
- * @param likelihood 
+ * @param urls 
+ * @param emails 
+ * @param users 
  */
 
-data class TLPTag (
-    @Json(name = "value")
-    val value: kotlin.String,
-    @Json(name = "likelihood")
-    val likelihood: java.math.BigDecimal
+data class TLPLinks (
+    @Json(name = "urls")
+    val urls: kotlin.collections.List<kotlin.String>,
+    @Json(name = "emails")
+    val emails: kotlin.collections.List<kotlin.String>,
+    @Json(name = "users")
+    val users: kotlin.collections.List<kotlin.String>
 )
 

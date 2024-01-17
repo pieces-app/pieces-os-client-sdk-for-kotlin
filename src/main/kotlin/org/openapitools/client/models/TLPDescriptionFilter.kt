@@ -9,28 +9,25 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.apis
+package org.piecesapp.client.models
+
 
 import com.squareup.moshi.Json
 
 /**
- * This object holds description data that is returned from the code description model and set of filters that are used post-process the description.  
- * @param value 
- * @param embedding The transformer encoder embedding
+ * This object is a filter is applied to a description value with a unique label and the confidence level of the filter and whether or not it should be applied
+ * @param label 
  * @param confidence Confidence is a value between 0 and 1
- * @param filters 
+ * @param applied 
  */
 
-data class TLPDescription (
-    @Json(name = "value")
-    val value: kotlin.String,
-    /* The transformer encoder embedding */
-    @Json(name = "embedding")
-    val embedding: kotlin.collections.List<java.math.BigDecimal>? = null,
+data class TLPDescriptionFilter (
+    @Json(name = "label")
+    val label: TLPDescriptionFilterEnum,
     /* Confidence is a value between 0 and 1 */
     @Json(name = "confidence")
     val confidence: java.math.BigDecimal? = null,
-    @Json(name = "filters")
-    val filters: TLPDescriptionFilters? = null
+    @Json(name = "applied")
+    val applied: kotlin.Boolean? = null
 )
 

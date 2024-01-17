@@ -9,19 +9,19 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.apis
+package org.piecesapp.client.models
 
 
 import com.squareup.moshi.Json
+import org.piecesapp.client.apis.TLPSensitive
 
 /**
- * This object holds title data that is returned from the title generation model.
- * @param value This is the value of the title that was generated.
+ * This is a model that represents many individual sensitive pieces of data.
+ * @param iterable 
  */
 
-data class TLPTitle (
-    /* This is the value of the title that was generated. */
-    @Json(name = "value")
-    val value: kotlin.String
+data class TLPSensitives (
+    @Json(name = "iterable")
+    val iterable: kotlin.collections.List<TLPSensitive>
 )
 

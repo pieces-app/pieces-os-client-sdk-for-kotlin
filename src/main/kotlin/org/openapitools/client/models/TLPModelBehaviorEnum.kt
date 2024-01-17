@@ -9,37 +9,29 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.apis
+package org.piecesapp.client.models
 
 
 import com.squareup.moshi.Json
 
 /**
-* An enumeration representing all available models.
-* Values: cODECLASSIFICATION,tEXTVSCODE,tAGIFY,dESCRIPTION,sENSITIVES
+* An enumeration where a developer can optimize the configuration for a model.  SPEED: This version will optimize for faster data processing, but sacrifice accuracy.  ACCURACY: This version will optimize for more precise results, but sacrifice speed.  BALANCED: This version is a mix between SPEED and ACCURACY.
+* Values: bALANCED,sPEED,aCCURACY
 */
 
-enum class TLPModelNameEnum(val value: kotlin.String){
+enum class TLPModelBehaviorEnum(val value: kotlin.String){
 
 
-    @Json(name = "CODE_CLASSIFICATION")
-    cODECLASSIFICATION("CODE_CLASSIFICATION"),
+    @Json(name = "BALANCED")
+    bALANCED("BALANCED"),
 
 
-    @Json(name = "TEXT_VS_CODE")
-    tEXTVSCODE("TEXT_VS_CODE"),
+    @Json(name = "SPEED")
+    sPEED("SPEED"),
 
 
-    @Json(name = "TAGIFY")
-    tAGIFY("TAGIFY"),
-
-
-    @Json(name = "DESCRIPTION")
-    dESCRIPTION("DESCRIPTION"),
-
-
-    @Json(name = "SENSITIVES")
-    sENSITIVES("SENSITIVES");
+    @Json(name = "ACCURACY")
+    aCCURACY("ACCURACY");
 
 
 

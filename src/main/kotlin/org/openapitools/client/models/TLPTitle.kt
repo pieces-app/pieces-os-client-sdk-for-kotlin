@@ -9,24 +9,19 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.apis
+package org.piecesapp.client.models
 
 
 import com.squareup.moshi.Json
 
 /**
- * current here is a key to the current language in the lookup property.
- * @param likelihood 
- * @param current 
- * @param lookup 
+ * This object holds title data that is returned from the title generation model.
+ * @param value This is the value of the title that was generated.
  */
 
-data class TLPLanguage (
-    @Json(name = "likelihood")
-    val likelihood: java.math.BigDecimal,
-    @Json(name = "current")
-    val current: kotlin.String,
-    @Json(name = "lookup")
-    val lookup: TLPLanguageMap
+data class TLPTitle (
+    /* This is the value of the title that was generated. */
+    @Json(name = "value")
+    val value: kotlin.String
 )
 

@@ -9,18 +9,21 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.apis
+package org.piecesapp.client.models
 
 
 import com.squareup.moshi.Json
 
 /**
- * This is used to generate useful search queries.
- * @param iterable 
+ * 
+ * @param value 
+ * @param likelihood 
  */
 
-data class TLPSearchQueries (
-    @Json(name = "iterable")
-    val iterable: kotlin.collections.List<TLPSearchQuery>
+data class TLPTag (
+    @Json(name = "value")
+    val value: kotlin.String,
+    @Json(name = "likelihood")
+    val likelihood: java.math.BigDecimal
 )
 

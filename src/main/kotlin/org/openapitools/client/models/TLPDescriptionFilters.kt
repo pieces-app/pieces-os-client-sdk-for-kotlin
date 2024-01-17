@@ -9,18 +9,18 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.apis
+package org.piecesapp.client.models
 
 
 import com.squareup.moshi.Json
 
 /**
- * 
+ * This object holds a set of filters that were applied to the description model. The iterable is an array of unique filters.
  * @param iterable 
  */
 
-data class TLPLanguages (
+data class TLPDescriptionFilters (
     @Json(name = "iterable")
-    val iterable: kotlin.collections.List<TLPLanguage>
+    val iterable: kotlin.collections.List<TLPDescriptionFilter>
 )
 

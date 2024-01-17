@@ -9,10 +9,11 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.apis
+package org.piecesapp.client.models
 
 
 import com.squareup.moshi.Json
+import org.piecesapp.client.models.TLPTextMatch
 
 /**
  * This is optional metatdata attached to a sensitive piece of data.

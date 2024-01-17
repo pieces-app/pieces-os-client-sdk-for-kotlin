@@ -9,18 +9,22 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.apis
+package org.piecesapp.client.models
 
 
 import com.squareup.moshi.Json
+import org.piecesapp.client.models.TLPModels
 
 /**
- * 
+ * iterable is an array of all the outputs we will give back based on a specific number of inputs.  models is an a class of all the models that were used to determine the outputs.
  * @param iterable 
+ * @param models 
  */
 
-data class TLPTags (
+data class TLPOutputs (
     @Json(name = "iterable")
-    val iterable: kotlin.collections.List<TLPTag>
+    val iterable: kotlin.collections.List<TLPOutput>,
+    @Json(name = "models")
+    val models: TLPModels
 )
 

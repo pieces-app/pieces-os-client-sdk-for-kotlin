@@ -9,29 +9,37 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.apis
+package org.piecesapp.client.models
 
 
 import com.squareup.moshi.Json
 
 /**
-* This enum is used to label and identify unique filters used in post-processing the description
-* Values: pUNCTUATION,aLPHABETICAL,rEPETITION
+* An enumeration representing all available models.
+* Values: cODECLASSIFICATION,tEXTVSCODE,tAGIFY,dESCRIPTION,sENSITIVES
 */
 
-enum class TLPDescriptionFilterEnum(val value: kotlin.String){
+enum class TLPModelNameEnum(val value: kotlin.String){
 
 
-    @Json(name = "PUNCTUATION")
-    pUNCTUATION("PUNCTUATION"),
+    @Json(name = "CODE_CLASSIFICATION")
+    cODECLASSIFICATION("CODE_CLASSIFICATION"),
 
 
-    @Json(name = "ALPHABETICAL")
-    aLPHABETICAL("ALPHABETICAL"),
+    @Json(name = "TEXT_VS_CODE")
+    tEXTVSCODE("TEXT_VS_CODE"),
 
 
-    @Json(name = "REPETITION")
-    rEPETITION("REPETITION");
+    @Json(name = "TAGIFY")
+    tAGIFY("TAGIFY"),
+
+
+    @Json(name = "DESCRIPTION")
+    dESCRIPTION("DESCRIPTION"),
+
+
+    @Json(name = "SENSITIVES")
+    sENSITIVES("SENSITIVES");
 
 
 

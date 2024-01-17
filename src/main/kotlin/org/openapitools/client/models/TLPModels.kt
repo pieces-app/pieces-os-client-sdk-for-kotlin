@@ -9,18 +9,18 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.apis
+package org.piecesapp.client.models
 
 
 import com.squareup.moshi.Json
 
 /**
- * This is a model that represents many individual sensitive pieces of data.
+ * 
  * @param iterable 
  */
 
-data class TLPSensitives (
+data class TLPModels (
     @Json(name = "iterable")
-    val iterable: kotlin.collections.List<TLPSensitive>
+    val iterable: kotlin.collections.List<TLPModel>
 )
 

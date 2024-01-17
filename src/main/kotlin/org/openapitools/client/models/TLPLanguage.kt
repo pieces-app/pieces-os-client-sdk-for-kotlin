@@ -9,18 +9,24 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.apis
+package org.piecesapp.client.models
 
 
 import com.squareup.moshi.Json
 
 /**
- * This object holds a set of filters that were applied to the description model. The iterable is an array of unique filters.
- * @param iterable 
+ * current here is a key to the current language in the lookup property.
+ * @param likelihood 
+ * @param current 
+ * @param lookup 
  */
 
-data class TLPDescriptionFilters (
-    @Json(name = "iterable")
-    val iterable: kotlin.collections.List<TLPDescriptionFilter>
+data class TLPLanguage (
+    @Json(name = "likelihood")
+    val likelihood: java.math.BigDecimal,
+    @Json(name = "current")
+    val current: kotlin.String,
+    @Json(name = "lookup")
+    val lookup: TLPLanguageMap
 )
 

@@ -9,29 +9,29 @@
 * https://openapi-generator.tech
 * Do not edit the class manually.
 */
-package org.piecesapp.client.apis
+package org.piecesapp.client.models
 
 
 import com.squareup.moshi.Json
 
 /**
-* An enumeration where a developer can optimize the configuration for a model.  SPEED: This version will optimize for faster data processing, but sacrifice accuracy.  ACCURACY: This version will optimize for more precise results, but sacrifice speed.  BALANCED: This version is a mix between SPEED and ACCURACY.
-* Values: bALANCED,sPEED,aCCURACY
+* This enum is used to label and identify unique filters used in post-processing the description
+* Values: pUNCTUATION,aLPHABETICAL,rEPETITION
 */
 
-enum class TLPModelBehaviorEnum(val value: kotlin.String){
+enum class TLPDescriptionFilterEnum(val value: kotlin.String){
 
 
-    @Json(name = "BALANCED")
-    bALANCED("BALANCED"),
+    @Json(name = "PUNCTUATION")
+    pUNCTUATION("PUNCTUATION"),
 
 
-    @Json(name = "SPEED")
-    sPEED("SPEED"),
+    @Json(name = "ALPHABETICAL")
+    aLPHABETICAL("ALPHABETICAL"),
 
 
-    @Json(name = "ACCURACY")
-    aCCURACY("ACCURACY");
+    @Json(name = "REPETITION")
+    rEPETITION("REPETITION");
 
 
 
