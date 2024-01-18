@@ -245,14 +245,4 @@ publishing {
         useGpgCmd() // runs local gpg installation(I used gpg4win/kleopatra to generate keys)
         sign(publishing.publications["myLibrary"]) // the publication being signed
     }
-
-}
-
-/**
- * prints list of available sourcesets.
- */
-sourceSets {
-    for(source in sourceSets){
-        println(source.java.name)
-    }
 }
