@@ -27,6 +27,7 @@ import org.piecesapp.client.infrastructure.RequestConfig
 import org.piecesapp.client.infrastructure.RequestMethod
 import org.piecesapp.client.infrastructure.ResponseType
 import org.piecesapp.client.infrastructure.Success
+import org.piecesapp.client.infrastructure.toMultiValue
 
 class ConversationApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     companion object {
@@ -119,8 +120,49 @@ class ConversationApi(basePath: kotlin.String = defaultBasePath) : ApiClient(bas
     }
 
     /**
+    * /conversation/{conversation}/websites/associate/{website} [POST]
+    * This will update both the website and the conversation.  and associate the 2 together
+    * @param conversation This is the uuid of a conversation. 
+    * @param website website id 
+    * @return void
+    * @throws UnsupportedOperationException If the API returns an informational or redirection response
+    * @throws ClientException If the API returns a client error response
+    * @throws ServerException If the API returns a server error response
+    */
+    @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun conversationAssociateWebsite(conversation: kotlin.String, website: kotlin.String) : Unit {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.POST,
+            "/conversation/{conversation}/websites/associate/{website}".replace("{"+"conversation"+"}", "$conversation").replace("{"+"website"+"}", "$website"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val localVarResponse = request<Any?>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
     * /conversation/{conversation}/anchors/delete/{anchor} [POST]
-    * This will update both the anchor and the conversation.  and delete(disacioate) the 2 together
+    * This will update both the anchor and the conversation.  and delete(disassociate) the 2 together
     * @param conversation This is the uuid of a conversation. 
     * @param anchor This is the specific uuid of an anchor. 
     * @return void
@@ -129,7 +171,7 @@ class ConversationApi(basePath: kotlin.String = defaultBasePath) : ApiClient(bas
     * @throws ServerException If the API returns a server error response
     */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun conversationDeleteAnchor(conversation: kotlin.String, anchor: kotlin.String) : Unit {
+    fun conversationDisassociateAnchor(conversation: kotlin.String, anchor: kotlin.String) : Unit {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -161,7 +203,7 @@ class ConversationApi(basePath: kotlin.String = defaultBasePath) : ApiClient(bas
 
     /**
     * /conversation/{conversation}/assets/delete/{asset} [POST]
-    * This will update both the asset and the conversation.  and delete(disacioate) the 2.
+    * This will update both the asset and the conversation.  and delete(disassociate) the 2.
     * @param conversation This is the uuid of a conversation. 
     * @param asset The id (uuid) of the asset that you are trying to access. 
     * @return void
@@ -170,13 +212,54 @@ class ConversationApi(basePath: kotlin.String = defaultBasePath) : ApiClient(bas
     * @throws ServerException If the API returns a server error response
     */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun conversationDeleteAsset(conversation: kotlin.String, asset: java.util.UUID) : Unit {
+    fun conversationDisassociateAsset(conversation: kotlin.String, asset: java.util.UUID) : Unit {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
             RequestMethod.POST,
             "/conversation/{conversation}/assets/delete/{asset}".replace("{"+"conversation"+"}", "$conversation").replace("{"+"asset"+"}", "$asset"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val localVarResponse = request<Any?>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+    * /website/{website}/websites/disassociate/{website} [POST]
+    * This will enable us to dissassociate a conversation from a website.
+    * @param conversation This is the uuid of a conversation. 
+    * @param website website id 
+    * @return void
+    * @throws UnsupportedOperationException If the API returns an informational or redirection response
+    * @throws ClientException If the API returns a client error response
+    * @throws ServerException If the API returns a server error response
+    */
+    @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun conversationDisassociateWebsite(conversation: kotlin.String, website: kotlin.String) : Unit {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.POST,
+            "/conversation/{conversation}/websites/disassociate/{website}".replace("{"+"conversation"+"}", "$conversation").replace("{"+"website"+"}", "$website"),
             query = localVariableQuery,
             headers = localVariableHeaders
         )

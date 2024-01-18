@@ -15,6 +15,7 @@ import org.piecesapp.client.models.EmbeddedModelSchema
 import org.piecesapp.client.models.SeededTrackedAdoptionEvent
 import org.piecesapp.client.models.SeededTrackedAssetEvent
 import org.piecesapp.client.models.SeededTrackedAssetsEvent
+import org.piecesapp.client.models.SeededTrackedConversationEvent
 import org.piecesapp.client.models.SeededTrackedFormatEvent
 import org.piecesapp.client.models.SeededTrackedInteractionEvent
 import org.piecesapp.client.models.SeededTrackedKeyboardEvent
@@ -34,6 +35,7 @@ import com.squareup.moshi.Json
  * @param assets 
  * @param ml 
  * @param adoption 
+ * @param conversation 
  */
 
 data class SeededConnectorTracking (
@@ -54,6 +56,8 @@ data class SeededConnectorTracking (
     @Json(name = "ml")
     val ml: SeededTrackedMachineLearningEvent? = null,
     @Json(name = "adoption")
-    val adoption: SeededTrackedAdoptionEvent? = null
+    val adoption: SeededTrackedAdoptionEvent? = null,
+    @Json(name = "conversation")
+    val conversation: SeededTrackedConversationEvent? = null
 )
 

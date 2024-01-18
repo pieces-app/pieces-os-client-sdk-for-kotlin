@@ -25,6 +25,7 @@ import org.piecesapp.client.infrastructure.RequestConfig
 import org.piecesapp.client.infrastructure.RequestMethod
 import org.piecesapp.client.infrastructure.ResponseType
 import org.piecesapp.client.infrastructure.Success
+import org.piecesapp.client.infrastructure.toMultiValue
 
 class AnnotationsApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     companion object {

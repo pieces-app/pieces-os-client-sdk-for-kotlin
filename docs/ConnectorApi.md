@@ -23,8 +23,8 @@ An endpoint which abstracts a bootup/connection for a specific context
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = ConnectorApi()
 val seededConnectorConnection : SeededConnectorConnection =  // SeededConnectorConnection | 
@@ -70,8 +70,8 @@ This can be used to send a SeededAsset over that you may use to compair in the f
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = ConnectorApi()
 val application : kotlin.String = application_example // kotlin.String | 
@@ -119,8 +119,8 @@ A consolidation endpoint to handle the updating of an onboarding process.
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = ConnectorApi()
 val application : kotlin.String = application_example // kotlin.String | This is a uuid that represents an application
@@ -168,8 +168,8 @@ This will react to the response returned from the /suggest endpoint.
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = ConnectorApi()
 val application : kotlin.String = application_example // kotlin.String | 
@@ -217,8 +217,8 @@ This can and should be called everytime a snippet is coppied from an integration
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = ConnectorApi()
 val application : kotlin.String = application_example // kotlin.String | 
@@ -266,8 +266,8 @@ This is an endpoint specifically to abstract the work of packaging for segment o
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = ConnectorApi()
 val application : kotlin.String = application_example // kotlin.String | This is a uuid that represents an application

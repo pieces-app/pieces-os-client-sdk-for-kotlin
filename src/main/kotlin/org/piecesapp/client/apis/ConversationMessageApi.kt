@@ -24,6 +24,7 @@ import org.piecesapp.client.infrastructure.RequestConfig
 import org.piecesapp.client.infrastructure.RequestMethod
 import org.piecesapp.client.infrastructure.ResponseType
 import org.piecesapp.client.infrastructure.Success
+import org.piecesapp.client.infrastructure.toMultiValue
 
 class ConversationMessageApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     companion object {
@@ -44,7 +45,7 @@ class ConversationMessageApi(basePath: kotlin.String = defaultBasePath) : ApiCli
     * @throws ServerException If the API returns a server error response
     */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun associateAnnotation(annotation: kotlin.String, message: kotlin.String) : Unit {
+    fun messageAssociateAnnotation(annotation: kotlin.String, message: kotlin.String) : Unit {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -85,7 +86,7 @@ class ConversationMessageApi(basePath: kotlin.String = defaultBasePath) : ApiCli
     * @throws ServerException If the API returns a server error response
     */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun disassociateAnnotation(annotation: kotlin.String, message: kotlin.String) : Unit {
+    fun messageDisassociateAnnotation(annotation: kotlin.String, message: kotlin.String) : Unit {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()

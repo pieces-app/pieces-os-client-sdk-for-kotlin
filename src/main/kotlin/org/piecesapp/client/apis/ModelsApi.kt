@@ -12,6 +12,8 @@
 package org.piecesapp.client.apis
 
 import org.piecesapp.client.models.Model
+import org.piecesapp.client.models.ModelDeleteCacheInput
+import org.piecesapp.client.models.ModelDeleteCacheOutput
 import org.piecesapp.client.models.Models
 import org.piecesapp.client.models.SeededModel
 
@@ -25,6 +27,7 @@ import org.piecesapp.client.infrastructure.RequestConfig
 import org.piecesapp.client.infrastructure.RequestMethod
 import org.piecesapp.client.infrastructure.ResponseType
 import org.piecesapp.client.infrastructure.Success
+import org.piecesapp.client.infrastructure.toMultiValue
 
 class ModelsApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     companion object {
@@ -36,7 +39,7 @@ class ModelsApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
 
     /**
     * /models/create [POST]
-    * 
+    * This will create a ml model, this is aloud however all models will be set to custom: true.  &amp;&amp; we will verify we dont have a model that matches this model.
     * @param seededModel  (optional)
     * @return Model
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -77,7 +80,7 @@ class ModelsApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
 
     /**
     * /models/{model}/delete [POST]
-    * 
+    * This will delete a model, This is only available for custom: true models.
     * @param model model id 
     * @return void
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -102,6 +105,48 @@ class ModelsApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+    * /models/{model}/delete/cache [POST]
+    * This is going to delete and sort of data that is associated with the Model itself IE the Assets/Libraries downloaded specifically for this model.  This is only available for the LLLM models for now.
+    * @param model model id 
+    * @param modelDeleteCacheInput  (optional)
+    * @return ModelDeleteCacheOutput
+    * @throws UnsupportedOperationException If the API returns an informational or redirection response
+    * @throws ClientException If the API returns a client error response
+    * @throws ServerException If the API returns a server error response
+    */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun modelsDeleteSpecificModelCache(model: kotlin.String, modelDeleteCacheInput: ModelDeleteCacheInput?) : ModelDeleteCacheOutput {
+        val localVariableBody: kotlin.Any? = modelDeleteCacheInput
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.POST,
+            "/models/{model}/delete/cache".replace("{"+"model"+"}", "$model"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val localVarResponse = request<ModelDeleteCacheOutput>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as ModelDeleteCacheOutput
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -157,7 +202,7 @@ class ModelsApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
 
     /**
     * /models/unload [POST]
-    * This will unload all of the ml models.
+    * This will unload all of the ml models.(that are unloadable)
     * @return void
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response

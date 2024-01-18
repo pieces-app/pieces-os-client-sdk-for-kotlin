@@ -11,6 +11,7 @@
 */
 package org.piecesapp.client.models
 
+import org.piecesapp.client.models.QGPTAgentRoutes
 import org.piecesapp.client.models.QGPTQuestionOutput
 import org.piecesapp.client.models.QGPTRelevanceOutput
 import org.piecesapp.client.models.QGPTStreamEnum
@@ -18,12 +19,15 @@ import org.piecesapp.client.models.QGPTStreamEnum
 import com.squareup.moshi.Json
 
 /**
- * This is the out for the /qgpt/stream endpoint.
+ * This is the out for the /qgpt/stream endpoint.  200: success 401: invalid authentication/api key 429: Rate limit/Quota exceeded 500: server had an error 503: the engine is currently overloaded
  * @param conversation This is the ID of a predefined persisted conversation, if this is not present we will create a new conversation for the input/output.(in the case of a question)
  * @param request This is the id used to represent the stream of response. this will always be present. We will use the value passed inby the client, or we will generate one.
  * @param relevance 
  * @param question 
  * @param status 
+ * @param statusCode This will be provided
+ * @param errorMessage optional error message is the status code is NOT 200
+ * @param agentRoutes 
  */
 
 data class QGPTStreamOutput (
@@ -38,6 +42,14 @@ data class QGPTStreamOutput (
     @Json(name = "question")
     val question: QGPTQuestionOutput? = null,
     @Json(name = "status")
-    val status: QGPTStreamEnum? = null
+    val status: QGPTStreamEnum? = null,
+    /* This will be provided */
+    @Json(name = "statusCode")
+    val statusCode: java.math.BigDecimal? = null,
+    /* optional error message is the status code is NOT 200 */
+    @Json(name = "errorMessage")
+    val errorMessage: kotlin.String? = null,
+    @Json(name = "agentRoutes")
+    val agentRoutes: QGPTAgentRoutes? = null
 )
 

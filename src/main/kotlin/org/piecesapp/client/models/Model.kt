@@ -45,6 +45,7 @@ import com.squareup.moshi.Json
  * @param cpu This is an optional bool that is optimized for CPU usage.
  * @param downloading This is a calculated property, that will say if this is currently downloading.
  * @param maxTokens 
+ * @param custom 
  */
 
 data class Model (
@@ -101,6 +102,8 @@ data class Model (
     @Json(name = "downloading")
     val downloading: kotlin.Boolean? = null,
     @Json(name = "maxTokens")
-    val maxTokens: ModelMaxTokens? = null
+    val maxTokens: ModelMaxTokens? = null,
+    @Json(name = "custom")
+    val custom: kotlin.Boolean? = null
 )
 

@@ -1,5 +1,3 @@
-import org.gradle.internal.impldep.org.apache.maven.model.Repository
-
 /**
  * repositories opens access to declare repositories
  * https://docs.gradle.org/current/userguide/declaring_repositories.html#sec:declaring_public_repository

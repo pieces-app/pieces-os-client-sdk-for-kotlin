@@ -15,6 +15,7 @@ import org.piecesapp.client.models.Application
 import org.piecesapp.client.models.ConversationTypeEnum
 import org.piecesapp.client.models.EmbeddedModelSchema
 import org.piecesapp.client.models.FlattenedAssets
+import org.piecesapp.client.models.FlattenedWebsites
 import org.piecesapp.client.models.ReferencedModel
 import org.piecesapp.client.models.SeededAnchor
 import org.piecesapp.client.models.SeededAnnotation
@@ -33,6 +34,7 @@ import com.squareup.moshi.Json
  * @param messages 
  * @param model 
  * @param assets 
+ * @param websites 
  * @param anchors 
  */
 
@@ -56,6 +58,8 @@ data class SeededConversation (
     val model: ReferencedModel? = null,
     @Json(name = "assets")
     val assets: FlattenedAssets? = null,
+    @Json(name = "websites")
+    val websites: FlattenedWebsites? = null,
     @Json(name = "anchors")
     val anchors: kotlin.collections.List<SeededAnchor>? = null
 )

@@ -1,5 +1,6 @@
 package org.piecesapp.client.infrastructure
 
+import okhttp3.Credentials
 import okhttp3.OkHttpClient
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -11,7 +12,6 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.Request
 import okhttp3.Headers
 import okhttp3.MultipartBody
-import org.piecesapp.client.infrastructure.*
 import java.io.File
 import java.net.URLConnection
 import java.util.Date
@@ -178,16 +178,16 @@ open class ApiClient(val baseUrl: String) {
         }
         val headers = requestConfig.headers
 
-        if((headers[ContentType] ?: "") == "") {
+        if(headers[ContentType] ?: "" == "") {
             throw kotlin.IllegalStateException("Missing Content-Type header. This is required.")
         }
 
-        if((headers[Accept] ?: "") == "") {
+        if(headers[Accept] ?: "" == "") {
             throw kotlin.IllegalStateException("Missing Accept header. This is required.")
         }
 
         // TODO: support multiple contentType options here.
-        val contentType = (headers[ContentType] as String).substringBefore(";").lowercase()
+        val contentType = (headers[ContentType] as String).substringBefore(";").toLowerCase()
 
         val request = when (requestConfig.method) {
             RequestMethod.DELETE -> Request.Builder().url(url).delete(requestBody(body, contentType))
@@ -202,7 +202,7 @@ open class ApiClient(val baseUrl: String) {
         }.build()
 
         val response = client.newCall(request).execute()
-        val accept = response.header(ContentType)?.substringBefore(";")?.lowercase()
+        val accept = response.header(ContentType)?.substringBefore(";")?.toLowerCase()
 
         // TODO: handle specific mapping types. e.g. Map<int, Class<?>>
         when {

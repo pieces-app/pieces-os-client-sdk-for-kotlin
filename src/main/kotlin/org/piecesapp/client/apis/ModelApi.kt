@@ -24,6 +24,7 @@ import org.piecesapp.client.infrastructure.RequestConfig
 import org.piecesapp.client.infrastructure.RequestMethod
 import org.piecesapp.client.infrastructure.ResponseType
 import org.piecesapp.client.infrastructure.Success
+import org.piecesapp.client.infrastructure.toMultiValue
 
 class ModelApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     companion object {
@@ -240,7 +241,7 @@ class ModelApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) 
 
     /**
     * /model/update [POST]
-    * 
+    * This will update Machinelearning Model, this is only available for \&quot;custom:true\&quot; models.
     * @param model  (optional)
     * @return Model
     * @throws UnsupportedOperationException If the API returns an informational or redirection response

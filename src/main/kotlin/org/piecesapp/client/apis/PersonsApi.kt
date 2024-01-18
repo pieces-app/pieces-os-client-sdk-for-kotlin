@@ -25,12 +25,54 @@ import org.piecesapp.client.infrastructure.RequestConfig
 import org.piecesapp.client.infrastructure.RequestMethod
 import org.piecesapp.client.infrastructure.ResponseType
 import org.piecesapp.client.infrastructure.Success
+import org.piecesapp.client.infrastructure.toMultiValue
 
 class PersonsApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
             System.getProperties().getProperty("org.piecesapp.client.baseUrl", "http://localhost:3000")
+        }
+    }
+
+    /**
+    * /persons/{person}/assets/delete/{asset} [POST]
+    * This will update both the asset and the person reference, that will remove a person from an asset(only the references).  This will NOT remove the person. This will NOT remove the asset. This will only update the references so that they are disconnected from one another.
+    * @param person This is a uuid that represents a person. 
+    * @param asset The id (uuid) of the asset that you are trying to access. 
+    * @return void
+    * @throws UnsupportedOperationException If the API returns an informational or redirection response
+    * @throws ClientException If the API returns a client error response
+    * @throws ServerException If the API returns a server error response
+    */
+    @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun personDisassociateAsset(person: kotlin.String, asset: java.util.UUID) : Unit {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.POST,
+            "/persons/{person}/assets/delete/{asset}".replace("{"+"person"+"}", "$person").replace("{"+"asset"+"}", "$asset"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val localVarResponse = request<Any?>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
         }
     }
 
@@ -154,47 +196,6 @@ class PersonsApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Persons
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-    * /persons/{person}/assets/delete/{asset} [POST]
-    * This will update both the asset and the person reference, that will remove a person from an asset(only the references).  This will NOT remove the person. This will NOT remove the asset. This will only update the references so that they are disconnected from one another.
-    * @param person This is a uuid that represents a person. 
-    * @param asset The id (uuid) of the asset that you are trying to access. 
-    * @return void
-    * @throws UnsupportedOperationException If the API returns an informational or redirection response
-    * @throws ClientException If the API returns a client error response
-    * @throws ServerException If the API returns a server error response
-    */
-    @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun removePersonReferenceFromAsset(person: kotlin.String, asset: java.util.UUID) : Unit {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.POST,
-            "/persons/{person}/assets/delete/{asset}".replace("{"+"person"+"}", "$person").replace("{"+"asset"+"}", "$asset"),
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
-        val localVarResponse = request<Any?>(
-            localVariableConfig,
-            localVariableBody
-        )
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> Unit
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {

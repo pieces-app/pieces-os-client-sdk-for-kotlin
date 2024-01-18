@@ -22,8 +22,8 @@ This is a function to Clear a PKCE Authentication Flow
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = PKCEApi()
 try {
@@ -64,8 +64,8 @@ An endpoint to get the PKCE Code - this endpoint proxies the call out to Authori
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = PKCEApi()
 val seededPKCE : SeededPKCE =  // SeededPKCE | All of the properties that the client might want to send over to authorize a PKCE Code Flow
@@ -111,8 +111,8 @@ A proxy endpoint for PKCE token generation, internally calls Auth0 /oauth/token
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = PKCEApi()
 val tokenizedPKCE : TokenizedPKCE =  // TokenizedPKCE | The needed properties to exchange a PKCE Code for an OAuth Token
@@ -158,8 +158,8 @@ An endpoint that returns a PKCE Challenge
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = PKCEApi()
 try {
@@ -201,8 +201,8 @@ This is a callback function hosted to help pass along the ResultedPKCE code from
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = PKCEApi()
 val code : kotlin.String = code_example // kotlin.String | The PKCE Code to be used to access a Token.

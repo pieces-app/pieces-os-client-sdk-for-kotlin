@@ -19,6 +19,7 @@ import org.piecesapp.client.models.FlattenedAnchors
 import org.piecesapp.client.models.FlattenedAnnotations
 import org.piecesapp.client.models.FlattenedAssets
 import org.piecesapp.client.models.FlattenedConversationMessages
+import org.piecesapp.client.models.FlattenedWebsites
 import org.piecesapp.client.models.GroupedTimestamp
 import org.piecesapp.client.models.ReferencedModel
 import org.piecesapp.client.models.Score
@@ -40,6 +41,7 @@ import com.squareup.moshi.Json
  * @param annotations 
  * @param model 
  * @param assets 
+ * @param websites 
  * @param anchors 
  * @param grounding 
  * @param score 
@@ -73,6 +75,8 @@ data class Conversation (
     val model: ReferencedModel? = null,
     @Json(name = "assets")
     val assets: FlattenedAssets? = null,
+    @Json(name = "websites")
+    val websites: FlattenedWebsites? = null,
     @Json(name = "anchors")
     val anchors: FlattenedAnchors? = null,
     @Json(name = "grounding")

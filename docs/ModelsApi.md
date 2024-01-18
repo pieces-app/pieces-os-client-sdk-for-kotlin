@@ -19,8 +19,8 @@ Method | HTTP request | Description
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = ModelsApi()
 val seededModel : SeededModel =  // SeededModel | 
@@ -64,8 +64,8 @@ No authorization required
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = ModelsApi()
 val model : kotlin.String = model_example // kotlin.String | model id
@@ -110,8 +110,8 @@ This will get a snapshot of all of your models.
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = ModelsApi()
 try {
@@ -153,8 +153,8 @@ This will unload all of the ml models.
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = ModelsApi()
 try {

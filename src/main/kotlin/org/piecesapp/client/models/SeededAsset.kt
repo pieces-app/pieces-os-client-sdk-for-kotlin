@@ -14,6 +14,7 @@ package org.piecesapp.client.models
 import org.piecesapp.client.models.Application
 import org.piecesapp.client.models.AvailableFormats
 import org.piecesapp.client.models.EmbeddedModelSchema
+import org.piecesapp.client.models.SeededAssetEnrichment
 import org.piecesapp.client.models.SeededAssetMetadata
 import org.piecesapp.client.models.SeededFormat
 
@@ -28,6 +29,7 @@ import com.squareup.moshi.Json
  * @param discovered 
  * @param available 
  * @param pseudo 
+ * @param enrichment 
  */
 
 data class SeededAsset (
@@ -44,6 +46,8 @@ data class SeededAsset (
     @Json(name = "available")
     val available: AvailableFormats? = null,
     @Json(name = "pseudo")
-    val pseudo: kotlin.Boolean? = null
+    val pseudo: kotlin.Boolean? = null,
+    @Json(name = "enrichment")
+    val enrichment: SeededAssetEnrichment? = null
 )
 

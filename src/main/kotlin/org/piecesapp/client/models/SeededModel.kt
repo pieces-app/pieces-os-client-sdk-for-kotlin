@@ -42,6 +42,7 @@ import com.squareup.moshi.Json
  * @param provider 
  * @param cpu This is an optional bool that is optimized for CPU usage.
  * @param maxTokens 
+ * @param custom This is reserved to custommly registed models.
  */
 
 data class SeededModel (
@@ -89,6 +90,9 @@ data class SeededModel (
     @Json(name = "cpu")
     val cpu: kotlin.Boolean? = null,
     @Json(name = "maxTokens")
-    val maxTokens: ModelMaxTokens? = null
+    val maxTokens: ModelMaxTokens? = null,
+    /* This is reserved to custommly registed models. */
+    @Json(name = "custom")
+    val custom: kotlin.Boolean? = null
 )
 

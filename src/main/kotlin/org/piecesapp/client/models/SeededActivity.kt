@@ -14,6 +14,7 @@ package org.piecesapp.client.models
 import org.piecesapp.client.models.Application
 import org.piecesapp.client.models.MechanismEnum
 import org.piecesapp.client.models.ReferencedAsset
+import org.piecesapp.client.models.ReferencedConversation
 import org.piecesapp.client.models.ReferencedFormat
 import org.piecesapp.client.models.ReferencedUser
 import org.piecesapp.client.models.SeededConnectorTracking
@@ -28,6 +29,7 @@ import com.squareup.moshi.Json
  * @param user 
  * @param format 
  * @param mechanism 
+ * @param conversation 
  */
 
 data class SeededActivity (
@@ -42,6 +44,8 @@ data class SeededActivity (
     @Json(name = "format")
     val format: ReferencedFormat? = null,
     @Json(name = "mechanism")
-    val mechanism: MechanismEnum? = null
+    val mechanism: MechanismEnum? = null,
+    @Json(name = "conversation")
+    val conversation: ReferencedConversation? = null
 )
 

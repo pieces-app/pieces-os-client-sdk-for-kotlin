@@ -24,6 +24,7 @@ import org.piecesapp.client.infrastructure.RequestConfig
 import org.piecesapp.client.infrastructure.RequestMethod
 import org.piecesapp.client.infrastructure.ResponseType
 import org.piecesapp.client.infrastructure.Success
+import org.piecesapp.client.infrastructure.toMultiValue
 
 class WebsiteApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     companion object {
@@ -44,13 +45,54 @@ class WebsiteApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
     * @throws ServerException If the API returns a server error response
     */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun associateAsset(asset: java.util.UUID, website: kotlin.String) : Unit {
+    fun websiteAssociateAsset(asset: java.util.UUID, website: kotlin.String) : Unit {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
             RequestMethod.POST,
             "/website/{website}/assets/associate/{asset}".replace("{"+"asset"+"}", "$asset").replace("{"+"website"+"}", "$website"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val localVarResponse = request<Any?>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+    * /website/{website}/conversations/associate/{conversation} [POST]
+    * This will associate a website with a conversation.
+    * @param website website id 
+    * @param conversation This is the uuid of a conversation. 
+    * @return void
+    * @throws UnsupportedOperationException If the API returns an informational or redirection response
+    * @throws ClientException If the API returns a client error response
+    * @throws ServerException If the API returns a server error response
+    */
+    @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun websiteAssociateConversation(website: kotlin.String, conversation: kotlin.String) : Unit {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.POST,
+            "/website/{website}/conversations/associate/{conversation}".replace("{"+"website"+"}", "$website").replace("{"+"conversation"+"}", "$conversation"),
             query = localVariableQuery,
             headers = localVariableHeaders
         )
@@ -85,7 +127,7 @@ class WebsiteApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
     * @throws ServerException If the API returns a server error response
     */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun associatePerson(website: kotlin.String, person: kotlin.String) : Unit {
+    fun websiteAssociatePerson(website: kotlin.String, person: kotlin.String) : Unit {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -126,13 +168,54 @@ class WebsiteApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
     * @throws ServerException If the API returns a server error response
     */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun disassociateAsset(website: kotlin.String, asset: java.util.UUID) : Unit {
+    fun websiteDisassociateAsset(website: kotlin.String, asset: java.util.UUID) : Unit {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
             RequestMethod.POST,
             "/website/{website}/assets/disassociate/{asset}".replace("{"+"website"+"}", "$website").replace("{"+"asset"+"}", "$asset"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val localVarResponse = request<Any?>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+    * /website/{website}/conversations/disassociate/{conversation} [POST]
+    * This will enable us to dissassociate a website from a conversation.
+    * @param website website id 
+    * @param conversation This is the uuid of a conversation. 
+    * @return void
+    * @throws UnsupportedOperationException If the API returns an informational or redirection response
+    * @throws ClientException If the API returns a client error response
+    * @throws ServerException If the API returns a server error response
+    */
+    @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun websiteDisassociateConversation(website: kotlin.String, conversation: kotlin.String) : Unit {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.POST,
+            "/website/{website}/conversations/disassociate/{conversation}".replace("{"+"website"+"}", "$website").replace("{"+"conversation"+"}", "$conversation"),
             query = localVariableQuery,
             headers = localVariableHeaders
         )
@@ -167,7 +250,7 @@ class WebsiteApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath
     * @throws ServerException If the API returns a server error response
     */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun disassociatePerson(website: kotlin.String, person: kotlin.String) : Unit {
+    fun websiteDisassociatePerson(website: kotlin.String, person: kotlin.String) : Unit {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()

@@ -11,6 +11,7 @@
 */
 package org.piecesapp.client.apis
 
+import org.piecesapp.client.models.Activities
 import org.piecesapp.client.models.Asset
 import org.piecesapp.client.models.AssetReclassification
 import org.piecesapp.client.models.Conversations
@@ -29,6 +30,7 @@ import org.piecesapp.client.infrastructure.RequestConfig
 import org.piecesapp.client.infrastructure.RequestMethod
 import org.piecesapp.client.infrastructure.ResponseType
 import org.piecesapp.client.infrastructure.Success
+import org.piecesapp.client.infrastructure.toMultiValue
 
 class AssetApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) {
     companion object {
@@ -80,6 +82,47 @@ class AssetApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) 
     }
 
     /**
+    * /asset/{asset}/websites/associate/{website} [POST]
+    * This will associate a website with a asset. This will do the same thing as the website equivilant.
+    * @param asset The id (uuid) of the asset that you are trying to access. 
+    * @param website website id 
+    * @return void
+    * @throws UnsupportedOperationException If the API returns an informational or redirection response
+    * @throws ClientException If the API returns a client error response
+    * @throws ServerException If the API returns a server error response
+    */
+    @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun assetAssociateWebsite(asset: java.util.UUID, website: kotlin.String) : Unit {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.POST,
+            "/asset/{asset}/websites/associate/{website}".replace("{"+"asset"+"}", "$asset").replace("{"+"website"+"}", "$website"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val localVarResponse = request<Any?>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
     * /asset/{asset}/tags/disassociate/{tag} [POST]
     * This will enable us to dissassociate a tag from a asset. This will do the same thing as the tag equivilant.
     * @param tag tag id 
@@ -97,6 +140,47 @@ class AssetApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) 
         val localVariableConfig = RequestConfig(
             RequestMethod.POST,
             "/asset/{asset}/tags/disassociate/{tag}".replace("{"+"tag"+"}", "$tag").replace("{"+"asset"+"}", "$asset"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val localVarResponse = request<Any?>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+    * /asset/{asset}/websites/disassociate/{website} [POST]
+    * This will enable us to dissassociate a website from a asset. This will do the same thing as the website equivilant.
+    * @param website website id 
+    * @param asset The id (uuid) of the asset that you are trying to access. 
+    * @return void
+    * @throws UnsupportedOperationException If the API returns an informational or redirection response
+    * @throws ClientException If the API returns a client error response
+    * @throws ServerException If the API returns a server error response
+    */
+    @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun assetDisassociateWebsite(website: kotlin.String, asset: java.util.UUID) : Unit {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.POST,
+            "/asset/{asset}/websites/disassociate/{website}".replace("{"+"website"+"}", "$website").replace("{"+"asset"+"}", "$asset"),
             query = localVariableQuery,
             headers = localVariableHeaders
         )
@@ -351,6 +435,53 @@ class AssetApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) 
     }
 
     /**
+    * /asset/{asset}/activities [GET]
+    * This will get a specific asset&#39;s activity events
+    * @param asset The id (uuid) of the asset that you are trying to access. 
+    * @param transferables This is a boolean that will decided if we are want to return the transferable data (default) or not(performance enhancement) (optional)
+    * @return Activities
+    * @throws UnsupportedOperationException If the API returns an informational or redirection response
+    * @throws ClientException If the API returns a client error response
+    * @throws ServerException If the API returns a server error response
+    */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun assetSpecificAssetActivities(asset: java.util.UUID, transferables: kotlin.Boolean?) : Activities {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, List<kotlin.String>>()
+            .apply {
+                if (transferables != null) {
+                    put("transferables", listOf(transferables.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/asset/{asset}/activities".replace("{"+"asset"+"}", "$asset"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val localVarResponse = request<Activities>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Activities
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
     * /asset/{asset}/conversations [GET]
     * This will get a specific asset&#39;s conversations
     * @param asset The id (uuid) of the asset that you are trying to access. 
@@ -476,88 +607,6 @@ class AssetApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath) 
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Asset
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-    * /asset/{asset}/websites/associate/{website} [POST]
-    * This will associate a website with a asset. This will do the same thing as the website equivilant.
-    * @param asset The id (uuid) of the asset that you are trying to access. 
-    * @param website website id 
-    * @return void
-    * @throws UnsupportedOperationException If the API returns an informational or redirection response
-    * @throws ClientException If the API returns a client error response
-    * @throws ServerException If the API returns a server error response
-    */
-    @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun associateWebsite(asset: java.util.UUID, website: kotlin.String) : Unit {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.POST,
-            "/asset/{asset}/websites/associate/{website}".replace("{"+"asset"+"}", "$asset").replace("{"+"website"+"}", "$website"),
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
-        val localVarResponse = request<Any?>(
-            localVariableConfig,
-            localVariableBody
-        )
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> Unit
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-    * /asset/{asset}/websites/disassociate/{website} [POST]
-    * This will enable us to dissassociate a website from a asset. This will do the same thing as the website equivilant.
-    * @param website website id 
-    * @param asset The id (uuid) of the asset that you are trying to access. 
-    * @return void
-    * @throws UnsupportedOperationException If the API returns an informational or redirection response
-    * @throws ClientException If the API returns a client error response
-    * @throws ServerException If the API returns a server error response
-    */
-    @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun disassociateWebsite(website: kotlin.String, asset: java.util.UUID) : Unit {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.POST,
-            "/asset/{asset}/websites/disassociate/{website}".replace("{"+"website"+"}", "$website").replace("{"+"asset"+"}", "$asset"),
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
-        val localVarResponse = request<Any?>(
-            localVariableConfig,
-            localVariableBody
-        )
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> Unit
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {

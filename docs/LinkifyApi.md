@@ -18,8 +18,8 @@ Method | HTTP request | Description
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = LinkifyApi()
 val linkify : Linkify =  // Linkify | 
@@ -65,8 +65,8 @@ No authorization required
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = LinkifyApi()
 val linkifyMultiple : LinkifyMultiple =  // LinkifyMultiple | 
@@ -112,8 +112,8 @@ This will revoke a link.
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import org.piecesapp.client.infrastructure.*
+//import org.piecesapp.client.models.*
 
 val apiInstance = LinkifyApi()
 val share : kotlin.String = share_example // kotlin.String | 

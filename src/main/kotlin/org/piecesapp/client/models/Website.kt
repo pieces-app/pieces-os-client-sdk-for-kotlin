@@ -13,6 +13,7 @@ package org.piecesapp.client.models
 
 import org.piecesapp.client.models.EmbeddedModelSchema
 import org.piecesapp.client.models.FlattenedAssets
+import org.piecesapp.client.models.FlattenedConversations
 import org.piecesapp.client.models.FlattenedPersons
 import org.piecesapp.client.models.GroupedTimestamp
 import org.piecesapp.client.models.MechanismEnum
@@ -33,6 +34,7 @@ import com.squareup.moshi.Json
  * @param mechanisms This is a Map<String, MechanismEnum> where the the key is an asset id.
  * @param interactions This is an optional value that will keep track of the number of times this has been interacted with.
  * @param persons 
+ * @param conversations 
  * @param score 
  */
 
@@ -63,6 +65,8 @@ data class Website (
     val interactions: kotlin.Int? = null,
     @Json(name = "persons")
     val persons: FlattenedPersons? = null,
+    @Json(name = "conversations")
+    val conversations: FlattenedConversations? = null,
     @Json(name = "score")
     val score: Score? = null
 )

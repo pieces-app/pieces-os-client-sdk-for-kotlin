@@ -23,6 +23,7 @@ import com.squareup.moshi.Json
  * @param request This is an optional Id you can use to identify the result from your request.
  * @param conversation This is the ID of a predefined persisted conversation, if this is not present we will create a new conversation for the input/output.(in the case of a question)
  * @param stop 
+ * @param agent This will let us know if we want to run the agent routing as well, this is default to true. However if set to false you will save on processing and you will recieve null for the agentRoutes class on the QGPTStreamOutput.
  */
 
 data class QGPTStreamInput (
@@ -37,6 +38,9 @@ data class QGPTStreamInput (
     @Json(name = "conversation")
     val conversation: kotlin.String? = null,
     @Json(name = "stop")
-    val stop: kotlin.Boolean? = null
+    val stop: kotlin.Boolean? = null,
+    /* This will let us know if we want to run the agent routing as well, this is default to true. However if set to false you will save on processing and you will recieve null for the agentRoutes class on the QGPTStreamOutput. */
+    @Json(name = "agent")
+    val agent: kotlin.Boolean? = null
 )
 
