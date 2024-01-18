@@ -47,7 +47,7 @@ plugins {
      * https://owasp.org/www-project-dependency-check/
      * good to run could be disabled for build?
      */
-    id("org.owasp.dependencycheck") version "8.4.2"
+    //id("org.owasp.dependencycheck") version "8.4.2"
 
 }
 
@@ -111,7 +111,7 @@ dependencies {
 }
 
 group = "app.pieces.pieces-os-client"
-version = "1.0.1"
+version = "1.2.2"
 
 /**
  * adds automatic generation of manifest entries from files
@@ -253,6 +253,6 @@ publishing {
  */
 sourceSets {
     for(source in sourceSets){
-        println(source)
+        println(source.java.name)
     }
 }
