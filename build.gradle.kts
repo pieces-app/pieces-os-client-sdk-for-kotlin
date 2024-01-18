@@ -1,3 +1,5 @@
+import org.gradle.internal.impldep.org.apache.maven.model.Repository
+
 /**
  * repositories opens access to declare repositories
  * https://docs.gradle.org/current/userguide/declaring_repositories.html#sec:declaring_public_repository
@@ -110,6 +112,7 @@ dependencies {
     }
 }
 
+val localRepo = repositories.mavenLocal().url.path
 group = "app.pieces.pieces-os-client"
 version = "1.2.2"
 
@@ -231,9 +234,8 @@ publishing {
      * final publication
      */
     repositories {
-        maven {
-            name = "myRepo"
-            url = uri(layout.buildDirectory.dir("C:/Users/jerem/.m2/repository"))
+        mavenLocal {
+            url = uri(layout.buildDirectory.dir("$localRepo"))
         }
     }
     /**
