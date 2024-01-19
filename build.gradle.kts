@@ -14,6 +14,11 @@ plugins {
 
 kotlin {
     jvmToolchain(17)
+    sourceSets.all {
+        languageSettings {
+            languageVersion = "1.8"
+        }
+    }
 }
 
 java {
