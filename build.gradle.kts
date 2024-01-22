@@ -71,6 +71,11 @@ tasks.register<Jar>("kotlinSources").configure {
 
 kotlin {
     jvmToolchain(17)
+    sourceSets.all {
+        languageSettings {
+            languageVersion = "1.8"
+        }
+    }
 }
 
 // not necessary for purely kotlin builds
@@ -127,7 +132,6 @@ tasks.withType<Jar>().configureEach {
         .joinToString(separator = " ") { file -> "${file.name}" }
 }
 
-
 publishing {
     // adds attributes to manifest in generated jar file.  The entries are just for demonstration.
     tasks.jar {
@@ -178,6 +182,7 @@ publishing {
                 /**
                  * licenses
                  */
+                 
                 licenses {
                     license {
                         name.set("MIT License")
